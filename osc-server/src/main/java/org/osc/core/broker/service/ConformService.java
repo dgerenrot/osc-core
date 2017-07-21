@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Job;
 import org.osc.core.broker.job.Job.JobCompletionListener;
 import org.osc.core.broker.job.JobEngine;
@@ -79,7 +79,7 @@ import org.osgi.service.transaction.control.TransactionControl;
  */
 @Component(service = {ConformServiceApi.class, ConformService.class})
 public class ConformService extends ServiceDispatcher<ConformRequest, BaseJobResponse> implements ConformServiceApi {
-    private static final Logger log = Logger.getLogger(ConformService.class);
+    private static final Logger log = LoggerFactory.getLogger(ConformService.class);
 
     @Reference
     private ApiFactoryService apiFactoryService;

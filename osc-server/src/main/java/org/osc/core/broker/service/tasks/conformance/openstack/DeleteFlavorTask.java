@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.service.tasks.conformance.openstack;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.virtualization.openstack.OsFlavorReference;
 import org.osc.core.broker.rest.client.openstack.openstack4j.Endpoint;
 import org.osc.core.broker.rest.client.openstack.openstack4j.Openstack4JNova;
@@ -29,7 +29,7 @@ import javax.persistence.EntityManager;
 @Component(service = DeleteFlavorTask.class)
 public class DeleteFlavorTask extends TransactionalTask {
 
-    private final Logger log = Logger.getLogger(DeleteFlavorTask.class);
+    private final Logger log = LoggerFactory.getLogger(DeleteFlavorTask.class);
 
     private String region;
     private OsFlavorReference flavorReference;

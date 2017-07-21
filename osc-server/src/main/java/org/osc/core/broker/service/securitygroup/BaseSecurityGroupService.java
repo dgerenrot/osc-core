@@ -24,7 +24,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.identity.v3.Project;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroup;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupMember;
@@ -59,7 +59,7 @@ import org.osc.core.common.controller.ControllerType;
 
 public abstract class BaseSecurityGroupService<I extends Request, O extends Response> extends ServiceDispatcher<I, O> {
 
-    private static final Logger log = Logger.getLogger(BaseSecurityGroupService.class);
+    private static final Logger log = LoggerFactory.getLogger(BaseSecurityGroupService.class);
 
     /**
      * Validates Virtualization connector and Project exists

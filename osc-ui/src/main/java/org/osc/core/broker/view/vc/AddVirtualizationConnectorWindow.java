@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.vc;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.AddVirtualizationConnectorServiceApi;
 import org.osc.core.broker.service.api.plugin.PluginService;
 import org.osc.core.broker.service.api.server.EncryptionApi;
@@ -39,7 +39,7 @@ public class AddVirtualizationConnectorWindow extends BaseVCWindow {
 
     private final ServerApi server;
 
-    private static final Logger log = Logger.getLogger(AddVirtualizationConnectorWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(AddVirtualizationConnectorWindow.class);
 
     public AddVirtualizationConnectorWindow(VirtualizationConnectorView vcView, AddVirtualizationConnectorServiceApi addVirtualizationConnectorService,
             PluginService pluginService, ValidationApi validator, X509TrustManagerApi trustManager, ServerApi server,

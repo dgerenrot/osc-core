@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.service;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.compute.Server;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.virtualization.VirtualizationConnector;
@@ -51,7 +51,7 @@ public class QueryVmInfoService extends ServiceDispatcher<QueryVmInfoRequest, Qu
         implements QueryVmInfoServiceApi {
 
     private static final Logger log =
-            Logger.getLogger(QueryVmInfoService.class);
+            LoggerFactory.getLogger(QueryVmInfoService.class);
 
     @Reference
     EncryptionApi encryption;

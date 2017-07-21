@@ -22,7 +22,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.Appliance;
 import org.osc.core.broker.model.entities.appliance.ApplianceSoftwareVersion;
 import org.osc.core.broker.model.entities.appliance.DistributedAppliance;
@@ -59,7 +59,7 @@ public class UpdateDistributedApplianceService
         extends ServiceDispatcher<BaseRequest<DistributedApplianceDto>, BaseJobResponse>
         implements UpdateDistributedApplianceServiceApi {
 
-    private static final Logger log = Logger.getLogger(UpdateDistributedApplianceService.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateDistributedApplianceService.class);
 
     private UnlockObjectMetaTask ult = null;
 

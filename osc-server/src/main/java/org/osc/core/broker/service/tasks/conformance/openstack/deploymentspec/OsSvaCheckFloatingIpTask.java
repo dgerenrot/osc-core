@@ -17,7 +17,7 @@
 package org.osc.core.broker.service.tasks.conformance.openstack.deploymentspec;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.network.NetFloatingIP;
 import org.openstack4j.model.network.Network;
 import org.osc.core.broker.job.TaskGraph;
@@ -38,7 +38,7 @@ import java.util.Set;
 @Component(service = OsSvaCheckFloatingIpTask.class)
 public class OsSvaCheckFloatingIpTask extends TransactionalMetaTask {
 
-    private final Logger log = Logger.getLogger(OsSvaCheckFloatingIpTask.class);
+    private final Logger log = LoggerFactory.getLogger(OsSvaCheckFloatingIpTask.class);
 
     private TaskGraph tg;
     private DistributedApplianceInstance dai;

@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.dto.AlarmDto;
 import org.osc.core.broker.service.exceptions.VmidcBrokerValidationException;
 import org.osc.core.broker.util.ValidateUtil;
@@ -30,7 +30,7 @@ import org.osc.core.common.alarm.EventType;
 
 public class AlarmDtoValidator {
 
-    private static final Logger log = Logger.getLogger(AlarmDtoValidator.class);
+    private static final Logger log = LoggerFactory.getLogger(AlarmDtoValidator.class);
 
     public static void checkForNullFields(AlarmDto dto) throws Exception {
         // build a map of (field,value) pairs to be checked for null/empty

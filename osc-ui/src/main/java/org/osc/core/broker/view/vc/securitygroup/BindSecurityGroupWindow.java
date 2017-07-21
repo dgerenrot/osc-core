@@ -19,7 +19,7 @@ package org.osc.core.broker.view.vc.securitygroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.BindSecurityGroupServiceApi;
 import org.osc.core.broker.service.api.ListSecurityGroupBindingsBySgServiceApi;
 import org.osc.core.broker.service.api.server.ServerApi;
@@ -67,7 +67,7 @@ public class BindSecurityGroupWindow extends CRUDBaseWindow<OkCancelButtonModel>
 
 	final String CAPTION = "Bind Policy to Security Group";
 
-	private static final Logger log = Logger.getLogger(BindSecurityGroupWindow.class);
+	private static final Logger log = LoggerFactory.getLogger(BindSecurityGroupWindow.class);
 
 	private final SecurityGroupDto currentSecurityGroup;
 	private Table serviceTable = null;

@@ -20,7 +20,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.DistributedAppliance;
 import org.osc.core.broker.model.entities.management.ApplianceManagerConnector;
 import org.osc.core.broker.service.ConformService;
@@ -39,7 +39,7 @@ import org.osgi.service.component.annotations.Reference;
 public class MCChangeNotificationService extends ServiceDispatcher<MCChangeNotificationRequest, BaseJobResponse>
         implements MCChangeNotificationServiceApi {
 
-    private static final Logger log = Logger.getLogger(MCChangeNotificationService.class);
+    private static final Logger log = LoggerFactory.getLogger(MCChangeNotificationService.class);
 
     @Reference
     private ConformService conformService;

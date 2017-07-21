@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.h2.util.StringUtils;
 import org.osc.core.broker.model.entities.ReleaseInfo;
 import org.osc.core.broker.service.api.DBConnectionManagerApi;
@@ -52,7 +52,7 @@ public class ReleaseUpgradeMgr {
 
     private static final String DB_UPGRADE_IN_PROGRESS_MARKER_FILE = "dbUpgradeInProgressMarker";
 
-    private static final Logger log = Logger.getLogger(ReleaseUpgradeMgr.class);
+    private static final Logger log = LoggerFactory.getLogger(ReleaseUpgradeMgr.class);
 
     public static void initDb(EncryptionApi encrypter, DBConnectionParameters params,
             DBConnectionManager dbMgr) throws Exception {

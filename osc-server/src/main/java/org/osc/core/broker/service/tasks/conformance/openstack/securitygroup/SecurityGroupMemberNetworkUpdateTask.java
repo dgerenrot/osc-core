@@ -22,7 +22,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.network.IP;
 import org.openstack4j.model.network.Port;
 import org.osc.core.broker.job.TaskGraph;
@@ -47,7 +47,7 @@ import org.osgi.service.component.annotations.Reference;
 @Component(service = SecurityGroupMemberNetworkUpdateTask.class)
 public class SecurityGroupMemberNetworkUpdateTask extends TransactionalMetaTask {
 
-    private final Logger log = Logger.getLogger(SecurityGroupMemberNetworkUpdateTask.class);
+    private final Logger log = LoggerFactory.getLogger(SecurityGroupMemberNetworkUpdateTask.class);
     private TaskGraph tg;
 
     @Reference

@@ -21,7 +21,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.TaskGraph;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroup;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupInterface;
@@ -46,7 +46,7 @@ import org.osgi.service.component.annotations.Reference;
 @Component(service=SecurityGroupMemberHookCheckTask.class)
 public class SecurityGroupMemberHookCheckTask extends TransactionalMetaTask {
 
-    private final Logger log = Logger.getLogger(SecurityGroupMemberHookCheckTask.class);
+    private final Logger log = LoggerFactory.getLogger(SecurityGroupMemberHookCheckTask.class);
 
     @Reference
     VmPortAllHooksRemoveTask vmPortAllHooksRemoveTask;

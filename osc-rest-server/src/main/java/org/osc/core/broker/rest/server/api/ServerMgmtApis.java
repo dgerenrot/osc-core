@@ -40,7 +40,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.StreamingOutput;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.rest.server.ApiUtil;
 import org.osc.core.broker.rest.server.OscAuthFilter;
 import org.osc.core.broker.rest.server.ServerRestConstants;
@@ -78,7 +78,7 @@ import io.swagger.annotations.Authorization;
 @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 public class ServerMgmtApis {
-    private static final Logger logger = Logger.getLogger(ServerMgmtApis.class);
+    private static final Logger logger = LoggerFactory.getLogger(ServerMgmtApis.class);
 
     @Reference
     ServerApi server;

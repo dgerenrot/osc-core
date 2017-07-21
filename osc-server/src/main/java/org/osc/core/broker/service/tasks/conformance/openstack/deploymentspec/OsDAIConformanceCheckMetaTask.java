@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.compute.Server;
 import org.osc.core.broker.job.TaskGraph;
 import org.osc.core.broker.job.lock.LockObjectReference;
@@ -60,7 +60,7 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 @Component(service = OsDAIConformanceCheckMetaTask.class)
 public class OsDAIConformanceCheckMetaTask extends TransactionalMetaTask {
 
-    private static final Logger log = Logger.getLogger(OsDAIConformanceCheckMetaTask.class);
+    private static final Logger log = LoggerFactory.getLogger(OsDAIConformanceCheckMetaTask.class);
 
     @Reference
     DeleteSvaServerTask deleteSvaServerTask;

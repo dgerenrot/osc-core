@@ -19,7 +19,7 @@ package org.osc.core.broker.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockManager;
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.job.lock.LockObjectReference.ObjectType;
@@ -36,7 +36,7 @@ import org.osc.core.broker.service.tasks.conformance.UnlockObjectTask;
 
 public class LockUtil {
 
-    private static final Logger log = Logger.getLogger(LockUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(LockUtil.class);
     public static final long DEFAULT_MAX_LOCK_TIMEOUT = 60 * 60 * 1000; // 1 hour
 
     /**

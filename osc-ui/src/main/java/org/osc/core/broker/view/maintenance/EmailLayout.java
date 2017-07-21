@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.maintenance;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.GetEmailSettingsServiceApi;
 import org.osc.core.broker.service.api.SetEmailSettingsServiceApi;
 import org.osc.core.broker.service.dto.EmailSettingsDto;
@@ -37,7 +37,7 @@ import com.vaadin.ui.VerticalLayout;
 public class EmailLayout extends FormLayout {
 
     private static final long serialVersionUID = 1L;
-    private static final Logger log = Logger.getLogger(EmailLayout.class);
+    private static final Logger log = LoggerFactory.getLogger(EmailLayout.class);
 
     public Table emailTable = null;
     private VerticalLayout container = null;

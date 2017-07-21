@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.service.tasks.conformance.openstack;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.network.SecurityGroup;
 import org.osc.core.broker.model.entities.virtualization.openstack.DeploymentSpec;
 import org.osc.core.broker.model.entities.virtualization.openstack.OsSecurityGroupReference;
@@ -32,7 +32,7 @@ import javax.persistence.EntityManager;
 @Component(service = DeleteOsSecurityGroupTask.class)
 public class DeleteOsSecurityGroupTask extends TransactionalTask {
 
-    private final Logger log = Logger.getLogger(DeleteOsSecurityGroupTask.class);
+    private final Logger log = LoggerFactory.getLogger(DeleteOsSecurityGroupTask.class);
 
     private static final int SLEEP_RETRIES = 5 * 1000; // 5 seconds
     private static final int MAX_ATTEMPTS = 3;

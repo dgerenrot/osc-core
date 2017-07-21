@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.vc.securitygroup;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.AddSecurityGroupServiceApi;
 import org.osc.core.broker.service.api.ListOpenstackMembersServiceApi;
 import org.osc.core.broker.service.api.ListRegionByVcIdServiceApi;
@@ -41,7 +41,7 @@ public class AddSecurityGroupWindow extends BaseSecurityGroupWindow {
 
     final String CAPTION = "Add Security Group";
 
-    private static final Logger log = Logger.getLogger(AddSecurityGroupWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(AddSecurityGroupWindow.class);
 
     private final AddSecurityGroupServiceApi addSecurityGroupService;
 

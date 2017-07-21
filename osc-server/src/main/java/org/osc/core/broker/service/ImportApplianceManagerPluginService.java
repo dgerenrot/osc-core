@@ -25,7 +25,7 @@ import javax.persistence.EntityManager;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.plugin.ApiFactoryService;
 import org.osc.core.broker.service.api.ImportApplianceManagerPluginServiceApi;
 import org.osc.core.broker.service.common.VmidcMessages;
@@ -42,7 +42,7 @@ import org.osgi.service.component.annotations.Component;
 public class ImportApplianceManagerPluginService extends ServiceDispatcher<ImportFileRequest, BaseResponse>
         implements ImportApplianceManagerPluginServiceApi {
 
-    private static final Logger log = Logger.getLogger(ImportApplianceManagerPluginService.class);
+    private static final Logger log = LoggerFactory.getLogger(ImportApplianceManagerPluginService.class);
 
     private File barFile = null;
     private String deploymentName;

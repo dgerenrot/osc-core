@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.window.delete;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.DeleteApplianceManagerConnectorServiceApi;
 import org.osc.core.broker.service.api.server.ServerApi;
 import org.osc.core.broker.service.request.BaseIdRequest;
@@ -36,7 +36,7 @@ public class DeleteManagerConnectorWindow extends CRUDBaseWindow<OkCancelButtonM
      */
     private static final long serialVersionUID = 1L;
 
-    private static final Logger log = Logger.getLogger(DeleteManagerConnectorWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(DeleteManagerConnectorWindow.class);
 
     final String CAPTION = "Delete Manager Connector";
 

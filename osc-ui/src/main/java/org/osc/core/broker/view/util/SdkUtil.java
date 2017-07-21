@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.util;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
@@ -27,7 +27,7 @@ import java.util.jar.JarFile;
 
 public class SdkUtil {
 
-    private Logger LOG = Logger.getLogger(SdkUtil.class);
+    private Logger LOG = LoggerFactory.getLogger(SdkUtil.class);
 
     private static final String SDKPATH = "webapp/SDK/";
 

@@ -18,7 +18,7 @@ package org.osc.core.broker.service.securitygroup;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Job;
 import org.osc.core.broker.job.JobEngine;
 import org.osc.core.broker.job.TaskGraph;
@@ -45,7 +45,7 @@ import org.osgi.service.component.annotations.Reference;
 public class DeleteSecurityGroupService extends ServiceDispatcher<BaseDeleteRequest, BaseJobResponse>
 implements DeleteSecurityGroupServiceApi {
 
-    private static final Logger log = Logger.getLogger(DeleteSecurityGroupService.class);
+    private static final Logger log = LoggerFactory.getLogger(DeleteSecurityGroupService.class);
 
     @Reference
     private ConformService conformService;

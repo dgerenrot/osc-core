@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.common.job.TaskGuard;
 import org.osc.core.broker.job.TaskGraph;
 import org.osc.core.broker.job.lock.LockObjectReference;
@@ -63,7 +63,7 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 
 @Component(service = VSConformanceCheckMetaTask.class)
 public class VSConformanceCheckMetaTask extends TransactionalMetaTask {
-    private static final Logger LOG = Logger.getLogger(VSConformanceCheckMetaTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(VSConformanceCheckMetaTask.class);
 
     @Reference
     ApiFactoryService apiFactoryService;

@@ -21,7 +21,7 @@ import java.util.Locale;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.GetDtoFromEntityServiceFactoryApi;
 import org.osc.core.broker.service.api.LoginServiceApi;
 import org.osc.core.broker.service.api.server.ServerApi;
@@ -108,7 +108,7 @@ public class MainUI extends UI implements BroadcastListener {
 
     private static final long serialVersionUID = 1L;
 
-    private static final Logger log = Logger.getLogger(MainUI.class);
+    private static final Logger log = LoggerFactory.getLogger(MainUI.class);
 
     private CRUDBaseView<?, ?> currentView;
 

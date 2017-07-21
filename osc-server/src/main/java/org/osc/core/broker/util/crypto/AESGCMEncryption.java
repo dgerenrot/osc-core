@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.util.crypto;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.server.EncryptionException;
 
 import javax.crypto.AEADBadTagException;
@@ -31,7 +31,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class AESGCMEncryption {
-    private static final Logger LOG = Logger.getLogger(EncryptionUtil.class);
+    private static final Logger LOG = LoggerFactory.getLogger(EncryptionUtil.class);
     private static final String AESGCM_ALGORITHM = "AES/GCM/NoPadding";
 
     public byte[] encrypt(byte[] plainText, SecretKey key, byte[] iv, byte[] aad) throws EncryptionException {

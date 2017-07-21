@@ -18,7 +18,7 @@ package org.osc.core.broker.view.securityinterface;
 
 import java.util.Arrays;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.common.virtualization.VirtualizationType;
 import org.osc.core.broker.service.api.AddSecurityGroupInterfaceServiceApi;
 import org.osc.core.broker.service.api.DeleteSecurityGroupInterfaceServiceApi;
@@ -56,7 +56,7 @@ public class SecurityGroupInterfaceSubView extends CRUDBaseSubView<VirtualSystem
     private static final String SECURITY_GROUP_INTERFACE_HELP_GUID = "GUID-C6F07F61-5669-4085-AF20-07212408C984.html";
     private static final String MC_ENTITY_NAME = "ApplianceManagerConnector";
 
-    private static final Logger log = Logger.getLogger(SecurityGroupInterfaceSubView.class);
+    private static final Logger log = LoggerFactory.getLogger(SecurityGroupInterfaceSubView.class);
 
     private final AddSecurityGroupInterfaceServiceApi addSecurityGroupInterfaceService;
     private final DeleteSecurityGroupInterfaceServiceApi deleteSecurityGroupInterfaceService;

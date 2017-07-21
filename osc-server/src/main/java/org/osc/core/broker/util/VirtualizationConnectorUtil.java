@@ -17,7 +17,7 @@
 package org.osc.core.broker.util;
 
 import com.rabbitmq.client.ShutdownSignalException;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.virtualization.VirtualizationConnector;
 import org.osc.core.broker.model.plugin.ApiFactoryService;
 import org.osc.core.broker.rest.client.openstack.openstack4j.Endpoint;
@@ -46,7 +46,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Component(service = VirtualizationConnectorUtil.class)
 public class VirtualizationConnectorUtil {
 
-    private static final Logger LOG = Logger.getLogger(VirtualizationConnectorUtil.class);
+    private static final Logger LOG = LoggerFactory.getLogger(VirtualizationConnectorUtil.class);
 
     private X509TrustManagerFactory managerFactory = null;
 

@@ -19,7 +19,7 @@ package org.osc.core.broker.service;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.SetNATSettingsServiceApi;
 import org.osc.core.broker.service.api.server.ServerApi;
 import org.osc.core.broker.service.dto.NATSettingsDto;
@@ -36,7 +36,7 @@ import org.osgi.service.component.annotations.Reference;
 public class SetNATSettingsService extends ServiceDispatcher<DryRunRequest<NATSettingsDto>, BaseJobResponse>
         implements SetNATSettingsServiceApi {
 
-    private static final Logger log = Logger.getLogger(SetNATSettingsService.class);
+    private static final Logger log = LoggerFactory.getLogger(SetNATSettingsService.class);
 
     @Reference
     private ServerApi server;

@@ -23,7 +23,7 @@ import java.net.InetAddress;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.BackupServiceApi;
 import org.osc.core.broker.service.api.server.ArchiveApi;
 import org.osc.core.broker.service.api.server.ServerApi;
@@ -65,7 +65,7 @@ public class SummaryLayout extends FormLayout {
 
     private ArchiveApi archiver;
 
-    private static final Logger log = Logger.getLogger(SummaryLayout.class);
+    private static final Logger log = LoggerFactory.getLogger(SummaryLayout.class);
 
 
     public SummaryLayout(ServerApi server, BackupServiceApi backupService,

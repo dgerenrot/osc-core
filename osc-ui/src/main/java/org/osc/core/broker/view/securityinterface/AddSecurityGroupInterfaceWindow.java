@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.securityinterface;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.AddSecurityGroupInterfaceServiceApi;
 import org.osc.core.broker.service.api.ListVirtualSystemPolicyServiceApi;
 import org.osc.core.broker.service.dto.PolicyDto;
@@ -34,7 +34,7 @@ public class AddSecurityGroupInterfaceWindow extends BaseSecurityGroupInterfaceW
      */
     private static final long serialVersionUID = 1L;
 
-    private static final Logger log = Logger.getLogger(AddSecurityGroupInterfaceWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(AddSecurityGroupInterfaceWindow.class);
 
     final String CAPTION = "Add Policy Mapping";
 

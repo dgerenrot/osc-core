@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.GetAgentStatusServiceApi;
 import org.osc.core.broker.service.api.ListDistributedApplianceInstanceServiceApi;
 import org.osc.core.broker.service.api.server.ServerApi;
@@ -56,7 +56,7 @@ public class ApplianceInstanceView extends CRUDBaseView<DistributedApplianceInst
 
     private static final long serialVersionUID = 1605215705219327527L;
 
-    private static final Logger LOG = Logger.getLogger(ApplianceInstanceView.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ApplianceInstanceView.class);
 
     @Reference
     private GetAgentStatusServiceApi getAgentStatusService;

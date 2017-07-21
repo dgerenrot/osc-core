@@ -23,7 +23,7 @@ import javax.crypto.SecretKey;
 import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.BackupFileServiceApi;
 import org.osc.core.broker.service.request.Request;
 import org.osc.core.broker.service.response.Response;
@@ -43,7 +43,7 @@ abstract class BackupFileService<I extends Request, O extends Response> extends 
 
     protected static final int DB_PASSWORD_MAX_LENGTH = 160;
 
-    protected static final Logger log = Logger.getLogger(BackupService.class);
+    protected static final Logger log = LoggerFactory.getLogger(BackupService.class);
 
     @Override
     public boolean isValidBackupFilename(String filename) {

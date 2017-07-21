@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.vc;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.server.EncryptionApi;
 import org.osc.core.broker.service.api.server.EncryptionException;
 import org.osc.core.broker.view.common.VmidcMessages;
@@ -41,7 +41,7 @@ public class AdvancedSettingsWindow extends CRUDBaseWindow<OkCancelButtonModel> 
 
     private static final String ADVANCED_SETTINGS_CAPTION = VmidcMessages.getString(VmidcMessages_.ADVANCED);
 
-    private static final Logger LOG = Logger.getLogger(AdvancedSettingsWindow.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AdvancedSettingsWindow.class);
 
     private CheckBox providerHttps = null;
     private TextField rabbitMQIp = null;

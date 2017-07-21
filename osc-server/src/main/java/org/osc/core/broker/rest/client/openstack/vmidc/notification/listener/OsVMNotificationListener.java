@@ -20,7 +20,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.BaseEntity;
 import org.osc.core.broker.model.entities.events.SystemFailureType;
@@ -45,7 +45,7 @@ import org.osgi.service.transaction.control.ScopedWorkException;
 
 public class OsVMNotificationListener extends OsNotificationListener {
 
-    private static final Logger log = Logger.getLogger(OsVMNotificationListener.class);
+    private static final Logger log = LoggerFactory.getLogger(OsVMNotificationListener.class);
     private static final String REGION_NOTIFICATION_KEY = "region";
 
     private final ConformService conformService;

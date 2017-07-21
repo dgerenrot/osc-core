@@ -22,7 +22,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.virtualization.openstack.DeploymentSpec;
@@ -36,7 +36,7 @@ import org.osgi.service.component.annotations.Reference;
 
 @Component(service=OnboardDAITask.class)
 public class OnboardDAITask extends TransactionalTask {
-    private static final Logger log = Logger.getLogger(OnboardDAITask.class);
+    private static final Logger log = LoggerFactory.getLogger(OnboardDAITask.class);
     private DistributedApplianceInstance dai;
 
     @Reference

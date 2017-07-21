@@ -18,7 +18,7 @@ package org.osc.core.broker.rest.client.openstack.vmidc;
 
 import javax.ws.rs.core.MediaType;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.rest.client.RestBaseClient;
 import org.osc.core.broker.rest.client.openstack.openstack4j.Endpoint;
 
@@ -26,7 +26,7 @@ public class OSGlanceClient extends RestBaseClient {
     private static final String OPENSTACK_REST_URL_BASE = "/v2";
     public static final int GLANCE_PORT = 9292;
 
-    Logger log = Logger.getLogger(OSGlanceClient.class);
+    Logger log = LoggerFactory.getLogger(OSGlanceClient.class);
 
     public OSGlanceClient(Endpoint endPoint, String token) {
 

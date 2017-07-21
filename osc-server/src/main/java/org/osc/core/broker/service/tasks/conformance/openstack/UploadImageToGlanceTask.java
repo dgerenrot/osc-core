@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.service.tasks.conformance.openstack;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.ApplianceSoftwareVersion;
 import org.osc.core.broker.model.entities.appliance.VirtualSystem;
@@ -39,7 +39,7 @@ import java.util.Set;
         configurationPolicy = ConfigurationPolicy.REQUIRE)
 public class UploadImageToGlanceTask extends TransactionalTask {
 
-    private final Logger log = Logger.getLogger(UploadImageToGlanceTask.class);
+    private final Logger log = LoggerFactory.getLogger(UploadImageToGlanceTask.class);
 
     private String region;
     private VirtualSystem vs;

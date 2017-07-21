@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.maintenance;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.CheckNetworkSettingsServiceApi;
 import org.osc.core.broker.service.api.GetNATSettingsServiceApi;
 import org.osc.core.broker.service.api.GetNetworkSettingsServiceApi;
@@ -55,7 +55,7 @@ import com.vaadin.ui.VerticalLayout;
 public class NetworkLayout extends FormLayout {
 
     private static final long serialVersionUID = 1L;
-    private static final Logger log = Logger.getLogger(NetworkLayout.class);
+    private static final Logger log = LoggerFactory.getLogger(NetworkLayout.class);
 
     public Table networkTable = null;
     private OptionGroup mode = null;

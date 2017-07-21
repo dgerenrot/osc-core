@@ -26,7 +26,7 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.ImportSdnControllerPluginServiceApi;
 import org.osc.core.broker.service.api.plugin.PluginApi;
 import org.osc.core.broker.service.api.plugin.PluginApi.State;
@@ -63,7 +63,7 @@ public class SdnControllerPluginsLayout extends FormLayout {
 
     private static final long serialVersionUID = 1L;
 
-    Logger log = Logger.getLogger(SdnControllerPluginsLayout.class);
+    Logger log = LoggerFactory.getLogger(SdnControllerPluginsLayout.class);
 
     private Table plugins;
     private Panel pluginsPanel;

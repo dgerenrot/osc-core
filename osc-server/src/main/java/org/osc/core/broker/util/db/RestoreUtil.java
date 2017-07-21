@@ -25,7 +25,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.exceptions.VmidcException;
 import org.osc.core.broker.util.crypto.KeyStoreProvider.KeyStoreProviderException;
 import org.osc.core.broker.util.db.upgrade.ReleaseUpgradeMgr;
@@ -33,7 +33,7 @@ import org.osc.core.server.Server;
 
 public class RestoreUtil {
 
-    private static final Logger log = Logger.getLogger(RestoreUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(RestoreUtil.class);
     private static final String H2_DATABASE_NAME = "vmiDCDB.h2.db";
 
     public static void restoreDataBase(File backupZipFile, String restoreLocation) {

@@ -23,7 +23,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Job;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroup;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupMember;
@@ -48,7 +48,7 @@ public class UpdateSecurityGroupService
         extends BaseSecurityGroupService<AddOrUpdateSecurityGroupRequest, BaseJobResponse>
         implements UpdateSecurityGroupServiceApi {
 
-    private static final Logger log = Logger.getLogger(UpdateSecurityGroupService.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateSecurityGroupService.class);
 
     // this @Ref is used by sub-type UpdateSecurityGroupPropertiesService
     @Reference

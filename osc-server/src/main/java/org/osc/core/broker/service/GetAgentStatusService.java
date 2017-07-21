@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.appliance.VirtualSystem;
@@ -57,7 +57,7 @@ public class GetAgentStatusService
         extends ServiceDispatcher<DistributedApplianceInstancesRequest, GetAgentStatusResponse>
         implements GetAgentStatusServiceApi {
 
-    private static final Logger LOG = Logger.getLogger(GetAgentStatusService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GetAgentStatusService.class);
     private List<DistributedApplianceInstance> daiList = null;
     private EntityManager em = null;
 

@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
 import javax.annotation.concurrent.GuardedBy;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.appliance.VirtualSystem;
 import org.osc.core.broker.model.entities.management.ApplianceManagerConnector;
@@ -93,7 +93,7 @@ import com.google.common.collect.ImmutableMap;
 public class ApiFactoryServiceImpl implements ApiFactoryService, PluginService {
 
     private static final String OSC_PLUGIN_NAME = PluginTracker.PROP_PLUGIN_NAME;
-    private final Logger log = Logger.getLogger(ApiFactoryServiceImpl.class);
+    private final Logger log = LoggerFactory.getLogger(ApiFactoryServiceImpl.class);
 
     private static final Map<String, Class<?>> REQUIRED_MANAGER_PLUGIN_PROPERTIES = ImmutableMap
             .<String, Class<?>>builder().put(VENDOR_NAME, String.class).put(SERVICE_NAME, String.class)

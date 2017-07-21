@@ -19,7 +19,7 @@ package org.osc.core.broker.view;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.ArchiveServiceApi;
 import org.osc.core.broker.service.api.BackupServiceApi;
 import org.osc.core.broker.service.api.CheckNetworkSettingsServiceApi;
@@ -77,9 +77,9 @@ public class MaintenanceView extends VerticalLayout implements View {
 
     private static final long serialVersionUID = 1L;
     // private static final Logger log =
-    // Logger.getLogger(MaintenanceView.class);
+    // LoggerFactory.getLogger(MaintenanceView.class);
 
-    private static final Logger log = Logger.getLogger(MaintenanceView.class);
+    private static final Logger log = LoggerFactory.getLogger(MaintenanceView.class);
 
     TabSheet subMenu = null;
     TabSheet tabs = new TabSheet();

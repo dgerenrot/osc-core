@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 import javax.net.ssl.SSLException;
 
 import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.UpdateApplianceManagerConnectorServiceApi;
 import org.osc.core.broker.service.api.plugin.PluginService;
 import org.osc.core.broker.service.api.server.ServerApi;
@@ -62,7 +62,7 @@ import com.vaadin.ui.TextField;
 @SuppressWarnings("serial")
 public class UpdateManagerConnectorWindow extends CRUDBaseWindow<OkCancelButtonModel> {
 
-    private static final Logger log = Logger.getLogger(UpdateManagerConnectorWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateManagerConnectorWindow.class);
 
     protected List<ErrorType> errorTypesToIgnore = new ArrayList<>();
 

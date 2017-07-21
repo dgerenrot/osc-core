@@ -1,5 +1,3 @@
-# osc-control
-
 -include target/depend.bnd
 
 # We use bnd to package up a fat jar, but we don't want to
@@ -17,10 +15,11 @@
     org.osc.core.broker.rest.client,\
     org.osc.core.broker.util.db,\
     org.osc.core.broker.service.common,\
-    com.google.gson.*
+    com.google.gson.*,\
+    org.slf4j.*,\
+    ch.qos.* 
 
 -includeresource: \
-    @${log4j.dep},\
     @${osc-service-api.dep},\
     @${commons-cli.dep},\
     @${commons-io.dep},\

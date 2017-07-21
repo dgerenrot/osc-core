@@ -24,7 +24,7 @@ import javax.net.ssl.SSLException;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Job;
 import org.osc.core.broker.job.lock.LockRequest.LockType;
 import org.osc.core.broker.model.entities.management.ApplianceManagerConnector;
@@ -65,7 +65,7 @@ public class AddApplianceManagerConnectorService
 extends ServiceDispatcher<DryRunRequest<ApplianceManagerConnectorRequest>, BaseJobResponse>
 implements AddApplianceManagerConnectorServiceApi {
 
-    private static final Logger LOG = Logger.getLogger(AddApplianceManagerConnectorService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AddApplianceManagerConnectorService.class);
 
     @Reference
     private ApiFactoryService apiFactoryService;

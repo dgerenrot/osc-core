@@ -18,7 +18,7 @@ package org.osc.core.broker.service.validator;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.appliance.VirtualSystem;
 import org.osc.core.broker.service.exceptions.VmidcBrokerValidationException;
@@ -28,7 +28,7 @@ import org.osc.core.broker.util.TransactionalBroadcastUtil;
 
 public class AgentRegisterServiceRequestValidator implements RequestValidator<AgentRegisterServiceRequest, DistributedApplianceInstance> {
     private EntityManager em;
-    private static final Logger log = Logger.getLogger(AgentRegisterServiceRequestValidator.class);
+    private static final Logger log = LoggerFactory.getLogger(AgentRegisterServiceRequestValidator.class);
     private TransactionalBroadcastUtil txBroadcastUtil;
 
     public AgentRegisterServiceRequestValidator(EntityManager em, TransactionalBroadcastUtil txBroadcastUtil) {

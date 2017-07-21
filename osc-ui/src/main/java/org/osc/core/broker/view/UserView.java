@@ -19,7 +19,7 @@ package org.osc.core.broker.view;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.AddUserServiceApi;
 import org.osc.core.broker.service.api.DeleteUserServiceApi;
 import org.osc.core.broker.service.api.ListUserServiceApi;
@@ -54,7 +54,7 @@ public class UserView extends CRUDBaseView<UserDto, BaseDto> {
 	 */
     private static final long serialVersionUID = 1L;
 
-    private static final Logger log = Logger.getLogger(UserView.class);
+    private static final Logger log = LoggerFactory.getLogger(UserView.class);
 
     @Reference
     private AddUserServiceApi addUserService;

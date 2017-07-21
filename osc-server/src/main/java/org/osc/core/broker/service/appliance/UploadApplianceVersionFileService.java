@@ -30,7 +30,7 @@ import javax.persistence.EntityManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.ServiceDispatcher;
 import org.osc.core.broker.service.api.ImportApplianceSoftwareVersionServiceApi;
 import org.osc.core.broker.service.api.UploadApplianceVersionFileServiceApi;
@@ -48,7 +48,7 @@ import org.osgi.service.component.annotations.Reference;
 public class UploadApplianceVersionFileService extends ServiceDispatcher<UploadRequest, BaseResponse>
         implements UploadApplianceVersionFileServiceApi {
 
-    private static final Logger log = Logger.getLogger(UploadApplianceVersionFileService.class);
+    private static final Logger log = LoggerFactory.getLogger(UploadApplianceVersionFileService.class);
 
     @Reference
     private ImportApplianceSoftwareVersionServiceApi importApplianceSoftwareVersionService;

@@ -20,7 +20,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Job;
 import org.osc.core.broker.job.lock.LockRequest.LockType;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroup;
@@ -49,7 +49,7 @@ import org.osgi.service.component.annotations.Reference;
 public class AddSecurityGroupService extends BaseSecurityGroupService<AddOrUpdateSecurityGroupRequest, BaseJobResponse>
         implements AddSecurityGroupServiceApi {
 
-    private static final Logger LOG = Logger.getLogger(AddSecurityGroupService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AddSecurityGroupService.class);
 
     @Reference
     private ConformService conformService;

@@ -19,7 +19,7 @@ package org.osc.core.broker.view.maintenance;
 import java.io.File;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.ArchiveServiceApi;
 import org.osc.core.broker.service.api.GetJobsArchiveServiceApi;
 import org.osc.core.broker.service.api.UpdateJobsArchiveServiceApi;
@@ -44,7 +44,7 @@ public class ArchiveLayout extends FormLayout {
      */
     private static final long serialVersionUID = 1L;
 
-    Logger log = Logger.getLogger(ArchiveLayout.class);
+    Logger log = LoggerFactory.getLogger(ArchiveLayout.class);
 
     private Table archiveTable;
 

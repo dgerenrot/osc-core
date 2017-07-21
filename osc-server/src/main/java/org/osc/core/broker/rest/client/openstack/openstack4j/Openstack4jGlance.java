@@ -17,7 +17,7 @@
 package org.osc.core.broker.rest.client.openstack.openstack4j;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.api.Builders;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.common.Payload;
@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class Openstack4jGlance extends BaseOpenstack4jApi {
 
-    private static final Logger log = Logger.getLogger(Openstack4jGlance.class);
+    private static final Logger log = LoggerFactory.getLogger(Openstack4jGlance.class);
 
     public Openstack4jGlance(Endpoint endPoint) {
         super(endPoint);

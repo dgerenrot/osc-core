@@ -22,7 +22,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.network.IP;
 import org.openstack4j.model.network.Network;
 import org.openstack4j.model.network.Port;
@@ -41,7 +41,7 @@ import org.osgi.service.component.annotations.Component;
 @Component(service = OsSvaCheckNetworkInfoTask.class)
 public class OsSvaCheckNetworkInfoTask extends TransactionalMetaTask {
 
-    private static final Logger LOG = Logger.getLogger(OsSvaCheckNetworkInfoTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(OsSvaCheckNetworkInfoTask.class);
 
     private TaskGraph tg;
     private DistributedApplianceInstance dai;

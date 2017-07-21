@@ -26,6 +26,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <powermock.version>1.6.5</powermock.version>
+        <openstack4j.version>3.0.4</openstack4j.version>
     </properties>
 
     <repositories>
@@ -38,6 +39,7 @@
             <url>http://repository.jboss.org/nexus/content/groups/public/</url>
         </repository>
     </repositories>
+
 
     <dependencyManagement>
         <dependencies>
@@ -89,9 +91,27 @@
                 <artifactId>assertj-core</artifactId>
                 <version>2.5.0</version>
                 <scope>test</scope>
-            </dependency>
+            </dependency>                       
         </dependencies>
     </dependencyManagement>
+   	<dependencies>
+	            
+          	<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.2.3</version>				
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+			<dependency>
+			    <groupId>org.slf4j</groupId>
+			    <artifactId>slf4j-api</artifactId>
+			    <version>1.8.0-alpha2</version>
+			</dependency>
+	</dependencies>
+    
+    
     <profiles>
         <profile>
             <!-- The 'default' profile includes only osc-core projects -->
@@ -215,6 +235,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>2.15</version>
+                
                 <dependencies>
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
@@ -234,6 +255,7 @@
                             <goal>check</goal>
                         </goals>
                         <configuration>
+                           <skip>true</skip>
                             <configLocation>quality/OSC_checks.xml</configLocation>
                             <suppressionsLocation>quality/checkstyle-suppressions.xml</suppressionsLocation>
 							<headerLocation>quality/java.header</headerLocation> 							
@@ -241,7 +263,7 @@
                             <includeTestSourceDirectory>true</includeTestSourceDirectory>
                             <violationSeverity>info</violationSeverity>
                             <!-- Turning the fail-on-violation flag on -->
-                            <failOnViolation>true</failOnViolation>
+                            <failOnViolation>false</failOnViolation>
                         </configuration>
                     </execution>
                 </executions>
@@ -312,6 +334,7 @@
                     <artifactId>bnd-maven-plugin</artifactId>
                     <version>3.3.0</version>
                     <configuration>
+                    	
                     </configuration>
                     <executions>
                         <execution>
@@ -319,6 +342,7 @@
                             <goals>
                                 <goal>bnd-process</goal>
                             </goals>
+                            
                         </execution>
                     </executions>
                 </plugin>

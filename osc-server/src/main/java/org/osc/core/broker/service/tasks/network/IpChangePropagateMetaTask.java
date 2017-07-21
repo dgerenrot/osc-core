@@ -18,7 +18,7 @@ package org.osc.core.broker.service.tasks.network;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Task;
 import org.osc.core.broker.job.TaskGraph;
 import org.osc.core.broker.job.lock.LockObjectReference;
@@ -44,7 +44,7 @@ import org.osgi.service.component.annotations.Reference;
 @Component(service = IpChangePropagateMetaTask.class)
 public class IpChangePropagateMetaTask extends TransactionalMetaTask {
 
-    private static final Logger log = Logger.getLogger(IpChangePropagateMetaTask.class);
+    private static final Logger log = LoggerFactory.getLogger(IpChangePropagateMetaTask.class);
 
     private TaskGraph tg;
 

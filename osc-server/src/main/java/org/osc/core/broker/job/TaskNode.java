@@ -26,7 +26,7 @@ import java.util.concurrent.Future;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.joda.time.DateTime;
 import org.osc.core.broker.job.Job.TaskChangeListener;
 import org.osc.core.broker.model.entities.job.TaskRecord;
@@ -50,7 +50,7 @@ import org.osgi.service.transaction.control.TransactionControl;
  */
 public class TaskNode implements Runnable, TaskElement {
 
-    private static Logger log = Logger.getLogger(TaskNode.class);
+    private static Logger log = LoggerFactory.getLogger(TaskNode.class);
 
     private Task task;
 
@@ -319,7 +319,7 @@ public class TaskNode implements Runnable, TaskElement {
 
             } catch (Throwable t) {
 
-                log.fatal("Task " + this + " Failed", t);
+                log.error("Task " + this + " Failed", t);
                 this.setStatus(TaskStatus.FAILED, t);
             }
 
@@ -336,7 +336,7 @@ public class TaskNode implements Runnable, TaskElement {
             }
 
         } catch (Throwable t) {
-            log.fatal("Fatal error during task execution (" + this + ")", t);
+            log.error("Fatal error during task execution (" + this + ")", t);
         }
     }
 

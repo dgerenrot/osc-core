@@ -18,7 +18,7 @@ package org.osc.core.broker.view.maintenance;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.BackupServiceApi;
 import org.osc.core.broker.service.api.RestoreServiceApi;
 import org.osc.core.broker.service.api.UpgradeServiceApi;
@@ -46,7 +46,7 @@ public class ManageLayout extends FormLayout {
      */
     private static final long serialVersionUID = 1L;
 
-    private static Logger log = Logger.getLogger(ManageLayout.class);
+    private static Logger log = LoggerFactory.getLogger(ManageLayout.class);
 
     private Button backupButton = null;
     private Link downloadBackup = null;

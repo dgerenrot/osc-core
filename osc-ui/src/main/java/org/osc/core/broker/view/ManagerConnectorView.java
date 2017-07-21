@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.AddApplianceManagerConnectorServiceApi;
 import org.osc.core.broker.service.api.DeleteApplianceManagerConnectorServiceApi;
 import org.osc.core.broker.service.api.ListApplianceManagerConnectorServiceApi;
@@ -65,7 +65,7 @@ public class ManagerConnectorView extends CRUDBaseView<ApplianceManagerConnector
 
     private static final long serialVersionUID = 1L;
 
-    private static final Logger log = Logger.getLogger(ManagerConnectorView.class);
+    private static final Logger log = LoggerFactory.getLogger(ManagerConnectorView.class);
 
     @Reference
     private PluginService pluginService;

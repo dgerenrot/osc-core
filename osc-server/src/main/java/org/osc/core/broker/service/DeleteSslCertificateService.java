@@ -18,7 +18,7 @@ package org.osc.core.broker.service;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.DeleteSslCertificateServiceApi;
 import org.osc.core.broker.service.exceptions.VmidcBrokerValidationException;
 import org.osc.core.broker.service.persistence.SslCertificateAttrEntityMgr;
@@ -31,7 +31,7 @@ public class DeleteSslCertificateService extends ServiceDispatcher<DeleteSslEntr
         implements DeleteSslCertificateServiceApi {
 
     private static final String INTERNAL_CERTIFICATE_MARKER = "internal";
-    private static final Logger log = Logger.getLogger(DeleteSslCertificateService.class);
+    private static final Logger log = LoggerFactory.getLogger(DeleteSslCertificateService.class);
 
     @Override
     protected EmptySuccessResponse exec(DeleteSslEntryRequest request, EntityManager em) throws Exception {

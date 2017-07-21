@@ -21,7 +21,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.TaskGraph;
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
@@ -51,7 +51,7 @@ import org.osgi.service.component.annotations.Reference;
 public final class CheckPortGroupHookMetaTask extends TransactionalMetaTask {
     private SecurityGroupInterface sgi;
     private TaskGraph tg;
-    private static final Logger LOG = Logger.getLogger(CheckPortGroupHookMetaTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CheckPortGroupHookMetaTask.class);
     private boolean isDeleteTaskGraph;
 
     @Reference

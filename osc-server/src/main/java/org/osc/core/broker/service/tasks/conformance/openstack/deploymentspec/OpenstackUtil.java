@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.compute.InterfaceAttachment;
 import org.openstack4j.model.compute.PortState;
 import org.openstack4j.model.compute.Server;
@@ -66,7 +66,7 @@ import org.osc.sdk.controller.element.NetworkElement;
 
 public class OpenstackUtil {
 
-    private static final Logger LOG = Logger.getLogger(OpenstackUtil.class);
+    private static final Logger LOG = LoggerFactory.getLogger(OpenstackUtil.class);
 
     private static final int SLEEP_DISCOVERY_RETRIES = 10 * 1000; // 10 seconds
     private static final int MAX_DISCOVERY_RETRIES = 40;
@@ -420,7 +420,7 @@ public class OpenstackUtil {
     }
 
     private static final class StartSecurityGroupJobListener implements JobCompletionListener {
-        private final Logger log = Logger.getLogger(StartSecurityGroupJobListener.class);
+        private final Logger log = LoggerFactory.getLogger(StartSecurityGroupJobListener.class);
 
         private final SecurityGroup sg;
         private final ConformService conformService;

@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.window.update;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.GetEmailSettingsServiceApi;
 import org.osc.core.broker.service.api.SetEmailSettingsServiceApi;
 import org.osc.core.broker.service.dto.EmailSettingsDto;
@@ -36,7 +36,7 @@ import com.vaadin.ui.TextField;
 public class SetEmailSettingsWindow extends CRUDBaseValidateWindow {
 
     private static final long serialVersionUID = 1L;
-    private static final Logger log = Logger.getLogger(SetEmailSettingsWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(SetEmailSettingsWindow.class);
 
     final String CAPTION = "Set Email Settings";
 

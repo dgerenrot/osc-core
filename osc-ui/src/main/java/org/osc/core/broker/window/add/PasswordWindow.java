@@ -18,7 +18,7 @@ package org.osc.core.broker.window.add;
 
 import java.util.Optional;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.server.ValidationApi;
 import org.osc.core.broker.service.exceptions.VmidcBrokerInvalidEntryException;
 import org.osc.core.broker.view.common.VmidcMessages;
@@ -32,7 +32,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.PasswordField;
 
 public class PasswordWindow extends CRUDBaseWindow<OkCancelButtonModel> {
-	private static final Logger LOG = Logger.getLogger(PasswordWindow.class);
+	private static final Logger LOG = LoggerFactory.getLogger(PasswordWindow.class);
 	private static final long serialVersionUID = -7979397047792926898L;
 
 	private PasswordField passwordField;

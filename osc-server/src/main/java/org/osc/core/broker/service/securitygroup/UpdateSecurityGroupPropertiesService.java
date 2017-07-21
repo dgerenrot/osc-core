@@ -18,7 +18,7 @@ package org.osc.core.broker.service.securitygroup;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Job;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroup;
 import org.osc.core.broker.service.LockUtil;
@@ -36,7 +36,7 @@ import org.osgi.service.component.annotations.Component;
 public class UpdateSecurityGroupPropertiesService extends UpdateSecurityGroupService
         implements UpdateSecurityGroupPropertiesServiceApi {
 
-    private static final Logger log = Logger.getLogger(UpdateSecurityGroupPropertiesService.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateSecurityGroupPropertiesService.class);
 
     @Override
     public BaseJobResponse exec(AddOrUpdateSecurityGroupRequest request, EntityManager em) throws Exception {

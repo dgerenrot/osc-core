@@ -22,7 +22,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.virtualization.VirtualizationConnector;
 import org.osc.core.broker.model.entities.virtualization.openstack.AvailabilityZone;
@@ -75,7 +75,7 @@ public class OsDeploymentSpecNotificationRunner implements BroadcastListener {
     private final HashMap<Long, VirtualizationConnector> dsToVCMap = new HashMap<Long, VirtualizationConnector>();
     private ServiceRegistration<BroadcastListener> registration;
 
-    private static final Logger log = Logger.getLogger(OsDeploymentSpecNotificationRunner.class);
+    private static final Logger log = LoggerFactory.getLogger(OsDeploymentSpecNotificationRunner.class);
 
     @Activate
     void start(BundleContext ctx) throws InterruptedException, VmidcException {

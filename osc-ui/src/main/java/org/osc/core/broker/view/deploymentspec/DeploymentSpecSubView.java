@@ -18,7 +18,7 @@ package org.osc.core.broker.view.deploymentspec;
 
 import java.util.Arrays;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.AddDeploymentSpecServiceApi;
 import org.osc.core.broker.service.api.DeleteDeploymentSpecServiceApi;
 import org.osc.core.broker.service.api.ListAvailabilityZonesServiceApi;
@@ -56,7 +56,7 @@ public class DeploymentSpecSubView extends CRUDBaseSubView<VirtualSystemDto, Dep
      *
      */
     private static final long serialVersionUID = 1L;
-    private static final Logger log = Logger.getLogger(DeploymentSpecSubView.class);
+    private static final Logger log = LoggerFactory.getLogger(DeploymentSpecSubView.class);
     private static final String DEPLOYMENT_SPEC_HELP_GUID = "GUID-53968F65-9F9C-4D75-996C-4B48185A5A4E.html";
 
     private final AddDeploymentSpecServiceApi addDeploymentSpecService;

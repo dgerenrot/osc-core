@@ -23,7 +23,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.virtualization.SecurityGroup;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupMember;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupMemberType;
@@ -76,7 +76,7 @@ public class OsSecurityGroupNotificationRunner implements BroadcastListener {
     private final Multimap<Long, OsNotificationListener> sgToListenerMap = ArrayListMultimap.create();
     private final HashMap<Long, VirtualizationConnector> sgToVCMap = new HashMap<Long, VirtualizationConnector>();
 
-    private static final Logger log = Logger.getLogger(OsSecurityGroupNotificationRunner.class);
+    private static final Logger log = LoggerFactory.getLogger(OsSecurityGroupNotificationRunner.class);
     private ServiceRegistration<BroadcastListener> registration;
 
     @Activate

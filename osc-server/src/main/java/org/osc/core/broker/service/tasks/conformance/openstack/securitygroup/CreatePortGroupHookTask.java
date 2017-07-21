@@ -18,7 +18,7 @@ package org.osc.core.broker.service.tasks.conformance.openstack.securitygroup;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupInterface;
 import org.osc.core.broker.model.plugin.ApiFactoryService;
@@ -40,7 +40,7 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(service=CreatePortGroupHookTask.class)
 public final class CreatePortGroupHookTask extends BasePortGroupHookTask {
-    private static final Logger LOG = Logger.getLogger(CreatePortGroupHookTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CreatePortGroupHookTask.class);
 
     @Reference
     private ApiFactoryService apiFactoryService;

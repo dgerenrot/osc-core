@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.service.tasks.conformance.openstack.deploymentspec;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.TaskGraph;
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
@@ -58,7 +58,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Component(service = DSUpdateOrDeleteMetaTask.class)
 public class DSUpdateOrDeleteMetaTask extends TransactionalMetaTask {
 
-    private static final Logger log = Logger.getLogger(DSUpdateOrDeleteMetaTask.class);
+    private static final Logger log = LoggerFactory.getLogger(DSUpdateOrDeleteMetaTask.class);
 
     @Reference
     MgrCheckDevicesMetaTask mgrCheckDevicesMetaTask;

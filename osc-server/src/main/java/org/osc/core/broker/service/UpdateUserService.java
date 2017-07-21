@@ -18,7 +18,7 @@ package org.osc.core.broker.service;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Job;
 import org.osc.core.broker.job.JobEngine;
 import org.osc.core.broker.job.TaskGraph;
@@ -44,7 +44,7 @@ import org.osgi.service.component.annotations.Reference;
 public class UpdateUserService extends ServiceDispatcher<UpdateUserRequest, UpdateUserResponse>
         implements UpdateUserServiceApi {
 
-    private static final Logger log = Logger.getLogger(UpdateUserService.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateUserService.class);
     private DtoValidator<UserDto, User> validator;
 
     @Reference

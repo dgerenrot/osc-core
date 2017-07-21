@@ -43,7 +43,7 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.io.output.StringBuilderWriter;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.rest.client.VmidcServerRestClient;
 import org.osc.core.broker.service.response.ServerStatusResponse;
 import org.osc.core.broker.util.ServerUtil;
@@ -53,7 +53,7 @@ import org.osc.core.broker.util.db.DBConnectionParameters;
 import org.osc.core.broker.util.log.LogUtil;
 
 public class ServerControl {
-    private static final Logger log = Logger.getLogger(ServerControl.class);
+    private static final Logger log = LoggerFactory.getLogger(ServerControl.class);
 
     private static final Integer DEFAULT_API_PORT = 8090;
     private static final String CONFIG_PROPERTIES_FILE = "vmidcServer.conf";

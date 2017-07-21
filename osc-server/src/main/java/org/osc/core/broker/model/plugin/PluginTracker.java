@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.plugin.PluginType;
 import org.osc.core.server.installer.InstallableListener;
 import org.osc.core.server.installer.InstallableManager;
@@ -54,7 +54,7 @@ import org.osgi.util.tracker.ServiceTracker;
  */
 public class PluginTracker<T> {
 
-    private final Logger LOGGER = Logger.getLogger(PluginTracker.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(PluginTracker.class);
 
     /**
      * Marker property on Plugin services indicating the plugin name.

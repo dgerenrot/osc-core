@@ -30,7 +30,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockManager;
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.job.lock.LockRequest;
@@ -64,7 +64,7 @@ import org.osgi.service.transaction.control.TransactionControl;
  */
 public class Job implements Runnable, JobElement {
 
-    private static Logger log = Logger.getLogger(Job.class);
+    private static Logger log = LoggerFactory.getLogger(Job.class);
 
     public interface JobCompletionListener {
         void completed(Job job);
@@ -277,7 +277,7 @@ public class Job implements Runnable, JobElement {
 
             } catch (Throwable t) {
 
-                log.fatal("Fatal error during job execution (" + this + ")", t);
+                log.error("Fatal error during job execution (" + this + ")", t);
                 abort("Fatal error during job execution (" + t + ")");
                 break;
             }

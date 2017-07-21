@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.maintenance;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.ArchiveServiceApi;
 import org.osc.core.broker.service.api.GetJobsArchiveServiceApi;
 import org.osc.core.broker.service.api.UpdateJobsArchiveServiceApi;
@@ -45,7 +45,7 @@ import com.vaadin.ui.VerticalLayout;
 public class JobsArchiverPanel extends CustomComponent {
 
     private static final long serialVersionUID = 1L;
-    private static final Logger log = Logger.getLogger(JobsArchiverPanel.class);
+    private static final Logger log = LoggerFactory.getLogger(JobsArchiverPanel.class);
 
     private VerticalLayout container = null;
 

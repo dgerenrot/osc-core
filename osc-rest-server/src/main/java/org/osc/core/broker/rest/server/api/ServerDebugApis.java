@@ -35,7 +35,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.rest.server.ServerRestConstants;
 import org.osc.core.broker.rest.server.annotations.LocalHostAuth;
 import org.osc.core.broker.service.api.DBConnectionManagerApi;
@@ -50,7 +50,7 @@ import org.osgi.service.component.annotations.Reference;
 @Produces(MediaType.TEXT_PLAIN)
 @LocalHostAuth
 public class ServerDebugApis {
-    private static final Logger logger = Logger.getLogger(ServerDebugApis.class);
+    private static final Logger logger = LoggerFactory.getLogger(ServerDebugApis.class);
 
     @Reference
     ServerApi server;

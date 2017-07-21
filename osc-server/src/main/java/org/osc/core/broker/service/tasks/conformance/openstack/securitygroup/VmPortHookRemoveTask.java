@@ -18,7 +18,7 @@ package org.osc.core.broker.service.tasks.conformance.openstack.securitygroup;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupMember;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupMemberType;
@@ -40,7 +40,7 @@ import org.osgi.service.component.annotations.Reference;
 @Component(service = VmPortHookRemoveTask.class)
 public class VmPortHookRemoveTask extends TransactionalTask {
 
-    private final Logger log = Logger.getLogger(VmPortHookRemoveTask.class);
+    private final Logger log = LoggerFactory.getLogger(VmPortHookRemoveTask.class);
 
     private SecurityGroupMember sgm;
     private String serviceName;

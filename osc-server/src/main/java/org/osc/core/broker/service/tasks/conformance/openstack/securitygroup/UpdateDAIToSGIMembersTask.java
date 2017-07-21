@@ -22,7 +22,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupInterface;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupMember;
@@ -41,7 +41,7 @@ import org.osc.core.broker.service.tasks.TransactionalTask;
 public abstract class UpdateDAIToSGIMembersTask extends TransactionalTask {
     private SecurityGroupInterface sgi;
     private DistributedApplianceInstance dai;
-    private static final Logger LOG = Logger.getLogger(UpdateDAIToSGIMembersTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UpdateDAIToSGIMembersTask.class);
 
     public UpdateDAIToSGIMembersTask(SecurityGroupInterface sgi, DistributedApplianceInstance dai) {
         this.sgi = sgi;

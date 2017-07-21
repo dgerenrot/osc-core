@@ -24,7 +24,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.ListOpenstackMembersServiceApi;
 import org.osc.core.broker.service.api.ListProjectByVcIdServiceApi;
 import org.osc.core.broker.service.api.ListRegionByVcIdServiceApi;
@@ -189,7 +189,7 @@ public abstract class BaseSecurityGroupWindow extends LoadingIndicatorCRUDBaseWi
     }
 
     private static final long serialVersionUID = 1L;
-    private static Logger log = Logger.getLogger(BaseSecurityGroupWindow.class);
+    private static Logger log = LoggerFactory.getLogger(BaseSecurityGroupWindow.class);
 
     protected SecurityGroupDto currentSecurityGroup = null;
 

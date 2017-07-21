@@ -21,7 +21,7 @@ import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.exceptions.VmidcException;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
@@ -30,7 +30,7 @@ import org.osgi.util.tracker.ServiceTracker;
 
 public class HibernateUtil {
 
-    private static final Logger log = Logger.getLogger(HibernateUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(HibernateUtil.class);
 
     private static ServiceTracker<DBConnectionManager, DBConnectionManager> tracker;
 

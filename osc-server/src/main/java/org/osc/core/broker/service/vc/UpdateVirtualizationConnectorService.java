@@ -17,7 +17,7 @@
 package org.osc.core.broker.service.vc;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockRequest.LockType;
 import org.osc.core.broker.model.entities.SslCertificateAttr;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
@@ -70,7 +70,7 @@ public class UpdateVirtualizationConnectorService
         extends ServiceDispatcher<DryRunRequest<VirtualizationConnectorRequest>, BaseJobResponse>
         implements UpdateVirtualizationConnectorServiceApi {
 
-    private static final Logger log = Logger.getLogger(UpdateVirtualizationConnectorService.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateVirtualizationConnectorService.class);
 
     @Reference
     private VirtualizationConnectorUtil util;

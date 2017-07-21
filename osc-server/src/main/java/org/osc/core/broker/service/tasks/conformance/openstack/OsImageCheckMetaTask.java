@@ -17,7 +17,7 @@
 package org.osc.core.broker.service.tasks.conformance.openstack;
 
 import com.google.common.base.Joiner;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.image.v2.Image;
 import org.osc.core.broker.job.TaskGraph;
 import org.osc.core.broker.job.lock.LockObjectReference;
@@ -36,7 +36,7 @@ import java.util.Set;
 
 @Component(service = OsImageCheckMetaTask.class)
 public class OsImageCheckMetaTask extends TransactionalMetaTask {
-    private static final Logger LOG = Logger.getLogger(OsImageCheckMetaTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(OsImageCheckMetaTask.class);
 
     @Reference
     DeleteImageReferenceTask deleteImageReferenceTask;

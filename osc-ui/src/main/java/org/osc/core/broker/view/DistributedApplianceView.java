@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.AddDeploymentSpecServiceApi;
 import org.osc.core.broker.service.api.AddDistributedApplianceServiceApi;
 import org.osc.core.broker.service.api.AddSecurityGroupInterfaceServiceApi;
@@ -93,7 +93,7 @@ import com.vaadin.ui.Notification;
 public class DistributedApplianceView extends CRUDBaseView<DistributedApplianceDto, VirtualSystemDto> {
 
     private static final String DA_HELP_GUID = "GUID-3FB92C5B-7F20-4B6A-B368-CA37C3E67007.html";
-    private static final Logger log = Logger.getLogger(DistributedApplianceView.class);
+    private static final Logger log = LoggerFactory.getLogger(DistributedApplianceView.class);
 
     // objects of all the sub views this View supports
     private DeploymentSpecSubView dsSubView = null;

@@ -21,7 +21,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
 import org.osc.core.broker.model.entities.virtualization.openstack.DeploymentSpec;
@@ -42,7 +42,7 @@ import org.osgi.service.component.annotations.Reference;
 @Component(service = DeleteInspectionPortTask.class)
 public class DeleteInspectionPortTask extends TransactionalTask {
 
-    private static final Logger LOG = Logger.getLogger(DeleteInspectionPortTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DeleteInspectionPortTask.class);
 
     @Reference
     private ApiFactoryService apiFactoryService;

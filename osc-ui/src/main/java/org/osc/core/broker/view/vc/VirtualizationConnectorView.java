@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.AddSecurityGroupServiceApi;
 import org.osc.core.broker.service.api.AddVirtualizationConnectorServiceApi;
 import org.osc.core.broker.service.api.BindSecurityGroupServiceApi;
@@ -86,7 +86,7 @@ public class VirtualizationConnectorView extends CRUDBaseView<VirtualizationConn
 
     private static final long serialVersionUID = 1L;
 
-    private static final Logger log = Logger.getLogger(VirtualizationConnectorView.class);
+    private static final Logger log = LoggerFactory.getLogger(VirtualizationConnectorView.class);
 
     @Reference
     private DeleteVirtualizationConnectorServiceApi deleteVirtualizationConnectorService;

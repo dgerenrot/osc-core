@@ -22,7 +22,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.ApplianceSoftwareVersion;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
@@ -79,7 +79,7 @@ public class OsSvaServerCreateTask extends TransactionalTask {
 
     }
 
-    private final Logger log = Logger.getLogger(OsSvaServerCreateTask.class);
+    private final Logger log = LoggerFactory.getLogger(OsSvaServerCreateTask.class);
 
     @Reference
     private ApiFactoryService apiFactoryService;

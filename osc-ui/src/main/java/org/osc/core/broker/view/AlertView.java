@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.AcknowledgeAlertServiceApi;
 import org.osc.core.broker.service.api.DeleteAlertServiceApi;
 import org.osc.core.broker.service.api.ListAlertServiceApi;
@@ -62,7 +62,7 @@ public class AlertView extends CRUDBaseView<AlertDto, BaseDto> {
     private static final String ALERT_TIME_ACKNOWLEDGED_COLUMN_ID = "timeAcknowledgedTimestamp";
     private static final String ALERT_USER_ACKNOWLEDGED_COLUMN_ID = "acknowledgedUser";
 
-    private static final Logger log = Logger.getLogger(AlertView.class);
+    private static final Logger log = LoggerFactory.getLogger(AlertView.class);
 
     private static final long serialVersionUID = 1L;
     private static final String ALERT_HELP_GUID = "GUID-977FE812-0813-41D0-A6A4-28A9E18CD8F6.html";

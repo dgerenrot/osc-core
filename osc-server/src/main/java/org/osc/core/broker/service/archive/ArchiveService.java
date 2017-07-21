@@ -30,7 +30,7 @@ import javax.persistence.Query;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.time.DateUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormat;
@@ -71,7 +71,7 @@ import org.quartz.impl.StdSchedulerFactory;
 public class ArchiveService extends ServiceDispatcher<BaseRequest<JobsArchiveDto>, Response>
 implements ArchiveServiceApi {
 
-    private static final Logger log = Logger.getLogger(ArchiveService.class);
+    private static final Logger log = LoggerFactory.getLogger(ArchiveService.class);
 
     @Reference
     private GetJobsArchiveServiceApi jobsArchiveService;

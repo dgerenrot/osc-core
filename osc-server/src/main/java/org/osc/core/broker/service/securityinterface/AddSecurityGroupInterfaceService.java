@@ -18,7 +18,7 @@ package org.osc.core.broker.service.securityinterface;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.VirtualSystem;
 import org.osc.core.broker.model.entities.virtualization.FailurePolicyType;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupInterface;
@@ -39,7 +39,7 @@ public class AddSecurityGroupInterfaceService
         extends BaseSecurityGroupInterfaceService<BaseRequest<SecurityGroupInterfaceDto>, BaseJobResponse>
         implements AddSecurityGroupInterfaceServiceApi {
 
-    private static final Logger log = Logger.getLogger(AddSecurityGroupInterfaceService.class);
+    private static final Logger log = LoggerFactory.getLogger(AddSecurityGroupInterfaceService.class);
 
     @Reference
     private ConformService conformService;

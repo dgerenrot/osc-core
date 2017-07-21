@@ -22,7 +22,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.api.Builders;
 import org.openstack4j.model.network.SecurityGroup;
 import org.openstack4j.model.network.SecurityGroupRule;
@@ -38,7 +38,7 @@ import org.osgi.service.component.annotations.Component;
 @Component(service = CreateOsSecurityGroupTask.class)
 public class CreateOsSecurityGroupTask extends TransactionalTask {
 
-    private final Logger log = Logger.getLogger(CreateOsSecurityGroupTask.class);
+    private final Logger log = LoggerFactory.getLogger(CreateOsSecurityGroupTask.class);
     final static String INGRESS = "ingress";
     final static String EGRESS = "egress";
     final static String IPV4 = "IPv4";

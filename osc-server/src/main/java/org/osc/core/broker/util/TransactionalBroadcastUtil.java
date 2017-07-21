@@ -19,7 +19,7 @@ package org.osc.core.broker.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.broadcast.BroadcastMessage;
 import org.osc.core.broker.service.broadcast.Broadcaster;
 import org.osc.core.broker.service.broadcast.EventType;
@@ -40,7 +40,7 @@ public class TransactionalBroadcastUtil {
     @Reference
     DBConnectionManager dbConnectionManager;
 
-    private final static Logger log = Logger.getLogger(TransactionalBroadcastUtil.class);
+    private final static Logger log = LoggerFactory.getLogger(TransactionalBroadcastUtil.class);
 
     private void sendBroadcast(List<BroadcastMessage> messages) {
         try {

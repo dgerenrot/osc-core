@@ -18,7 +18,7 @@ package org.osc.core.broker.rest.client.openstack.vmidc.notification.listener;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.BaseEntity;
 import org.osc.core.broker.model.entities.events.SystemFailureType;
@@ -34,7 +34,7 @@ import org.osgi.service.transaction.control.TransactionControl;
 
 public class OsHostAggregrateNotificationListener extends OsNotificationListener {
 
-    private static final Logger log = Logger.getLogger(OsHostAggregrateNotificationListener.class);
+    private static final Logger log = LoggerFactory.getLogger(OsHostAggregrateNotificationListener.class);
 
     private final ConformService conformService;
 

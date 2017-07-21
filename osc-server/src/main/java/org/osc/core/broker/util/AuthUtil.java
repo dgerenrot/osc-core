@@ -23,7 +23,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.Response;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.server.EncryptionApi;
 import org.osc.core.broker.service.api.server.EncryptionException;
 import org.osc.core.broker.service.api.server.LoggingApi;
@@ -41,7 +41,7 @@ public class AuthUtil {
     @Reference
     LoggingApi logging;
 
-    private static final Logger log = Logger.getLogger(AuthUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(AuthUtil.class);
 
     public void authenticate(ContainerRequestContext request, String validUserName, String validPass) {
         authenticate(request, ImmutableMap.of(validUserName, validPass));

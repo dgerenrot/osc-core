@@ -37,12 +37,12 @@ import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.util.ServerUtil;
 
 public class PKIUtil {
 
-    private static final Logger log = Logger.getLogger(PKIUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(PKIUtil.class);
 
     private static final String keyAlg = "RSA";
     private static final String dName = "CN=Intruvert-Sensor,C=US";

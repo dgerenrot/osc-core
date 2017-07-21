@@ -21,7 +21,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.management.ApplianceManagerConnector;
 import org.osc.core.broker.service.persistence.OSCEntityManager;
@@ -30,7 +30,7 @@ import org.osgi.service.component.annotations.Component;
 
 @Component(service=SyncMgrPublicKeyTask.class)
 public class SyncMgrPublicKeyTask extends TransactionalTask {
-    private static final Logger log = Logger.getLogger(SyncMgrPublicKeyTask.class);
+    private static final Logger log = LoggerFactory.getLogger(SyncMgrPublicKeyTask.class);
 
     private ApplianceManagerConnector mc;
     private byte[] bytes;

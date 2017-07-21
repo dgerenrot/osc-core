@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.alarm;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.GetEmailSettingsServiceApi;
 import org.osc.core.broker.service.api.UpdateAlarmServiceApi;
 import org.osc.core.broker.service.dto.AlarmDto;
@@ -34,7 +34,7 @@ public class UpdateAlarmWindow extends BaseAlarmWindow {
     private static final long serialVersionUID = 1L;
     final String CAPTION = "Edit Alarm";
 
-    private static final Logger log = Logger.getLogger(UpdateAlarmWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateAlarmWindow.class);
 
     // current view reference
     private AlarmView alarmView = null;

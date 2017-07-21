@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.api.exceptions.ServerResponseException;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.IP;
@@ -46,7 +46,7 @@ import com.google.common.collect.Maps;
 
 public class Openstack4JNeutron extends BaseOpenstack4jApi {
 
-    private static final Logger log = Logger.getLogger(Openstack4JNeutron.class);
+    private static final Logger log = LoggerFactory.getLogger(Openstack4JNeutron.class);
 
     private static final String QUERY_PARAM_COMPUTE_DEVICE_OWNER = "compute:";
     private static final String QUERY_PARAM_ROUTER_DEVICE_OWNER = "network:router_interface";
@@ -234,7 +234,7 @@ public class Openstack4JNeutron extends BaseOpenstack4jApi {
                 if (e.getStatusCode().getCode() == OPENSTACK_CONFLICT_STATUS) {
                     log.info("Rule already exists for Openstack Security Group name " + sg.getName());
                 } else {
-                    log.error(e);
+                    log.error(e.getMessage());
                 }
             }
         }

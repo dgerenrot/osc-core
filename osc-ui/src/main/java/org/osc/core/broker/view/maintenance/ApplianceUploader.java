@@ -23,7 +23,7 @@ import java.io.OutputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.view.common.StyleConstants;
 import org.osc.core.broker.view.common.VmidcMessages;
 import org.osc.core.broker.view.common.VmidcMessages_;
@@ -44,7 +44,7 @@ import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 public class ApplianceUploader extends CustomComponent implements Receiver, FailedListener {
-    private static final Logger log = Logger.getLogger(ApplianceUploader.class);
+    private static final Logger log = LoggerFactory.getLogger(ApplianceUploader.class);
     private static int TEMP_FOLDER_COUNTER = 0;
     private final Upload upload;
     private File file;

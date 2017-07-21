@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.RestoreServiceApi;
 import org.osc.core.broker.service.api.server.ServerApi;
 import org.osc.core.broker.service.api.server.ValidationApi;
@@ -48,7 +48,7 @@ import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 public class DbRestorer extends CustomComponent implements Receiver, FailedListener, SucceededListener {
-    private static final Logger log = Logger.getLogger(DbRestorer.class);
+    private static final Logger log = LoggerFactory.getLogger(DbRestorer.class);
     private final Upload upload;
     private File file;
     private final Panel panel = new Panel();

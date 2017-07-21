@@ -19,7 +19,7 @@ package org.osc.core.broker.service;
 import javax.persistence.EntityManager;
 import javax.security.auth.login.LoginException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.RoleType;
 import org.osc.core.broker.model.entities.User;
 import org.osc.core.broker.service.api.LoginServiceApi;
@@ -35,7 +35,7 @@ import org.osgi.service.component.annotations.Reference;
 
 @Component
 public class LoginService extends ServiceDispatcher<LoginRequest, LoginResponse> implements LoginServiceApi {
-    private static final Logger LOG = Logger.getLogger(LoginService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
 
     @Reference
     EncryptionApi encryption;

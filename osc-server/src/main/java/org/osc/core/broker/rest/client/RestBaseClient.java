@@ -45,7 +45,7 @@ import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.glassfish.jersey.client.ClientProperties;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.glassfish.jersey.logging.LoggingFeature;
@@ -67,7 +67,7 @@ public abstract class RestBaseClient {
 
     public static boolean enableDebugLogging = false;
 
-    private static Logger log = Logger.getLogger(RestBaseClient.class);
+    private static Logger log = LoggerFactory.getLogger(RestBaseClient.class);
 
     private Client client;
     private WebTarget webTarget;

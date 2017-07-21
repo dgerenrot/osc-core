@@ -18,7 +18,7 @@ package org.osc.core.broker.view.securityinterface;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.ListVirtualSystemPolicyServiceApi;
 import org.osc.core.broker.service.dto.PolicyDto;
 import org.osc.core.broker.service.request.BaseIdRequest;
@@ -39,7 +39,7 @@ public abstract class BaseSecurityGroupInterfaceWindow extends CRUDBaseWindow<Ok
      *
      */
     private static final long serialVersionUID = 1L;
-    private static Logger log = Logger.getLogger(BaseSecurityGroupInterfaceWindow.class);
+    private static Logger log = LoggerFactory.getLogger(BaseSecurityGroupInterfaceWindow.class);
 
     protected TextField name;
     protected ComboBox policy;

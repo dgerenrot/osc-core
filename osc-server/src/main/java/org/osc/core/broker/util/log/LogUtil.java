@@ -18,14 +18,14 @@ package org.osc.core.broker.util.log;
 
 import java.io.PrintStream;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
+//import org.apache.log4j.PropertyConfigurator;
 
 public class LogUtil {
 
     public static void initLog4j() {
         try {
-            PropertyConfigurator.configureAndWatch("./log4j.properties");
+//            PropertyConfigurator.configureAndWatch("./log4j.properties");
             StdOutErrLog.tieSystemOutAndErrToLog();
         } catch (Exception ex) {
             System.out.println("failed to initialize log4j");
@@ -35,7 +35,7 @@ public class LogUtil {
 
     public static class StdOutErrLog {
 
-        private static final Logger logger = Logger.getLogger(StdOutErrLog.class);
+        private static final Logger logger = LoggerFactory.getLogger(StdOutErrLog.class);
 
         public static void tieSystemOutAndErrToLog() {
             System.setOut(createLoggingProxy(System.out, false));

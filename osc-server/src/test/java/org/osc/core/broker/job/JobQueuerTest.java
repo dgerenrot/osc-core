@@ -23,9 +23,9 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import java.util.List;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.BasicConfigurator;
+//import org.apache.log4j.Level;
+//import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -48,19 +48,19 @@ public class JobQueuerTest {
 
     @BeforeClass
     public static void initTests() {
-        Logger hibernateLogger = Logger.getLogger("org.hibernate");
-        hibernateLogger.setLevel(Level.ERROR);
-
-        Logger broadcastUtilLogger = Logger.getLogger("org.osc.core.broker.util.TransactionalBroadcastUtil");
-        broadcastUtilLogger.setLevel(Level.ERROR);
-
-        Logger logger = Logger.getLogger("org.osc.core.broker.job.Job");
-        logger.setLevel(Level.DEBUG);
-        logger = Logger.getLogger("org.osc.core.broker.job.JobEngine");
-        logger.setLevel(Level.DEBUG);
-        logger = Logger.getLogger("org.osc.core.broker.job.TaskNode");
-        logger.setLevel(Level.DEBUG);
-        BasicConfigurator.configure();
+//        Logger hibernateLogger = LoggerFactory.getLogger("org.hibernate");
+//        hibernateLogger.setLevel(Level.ERROR);
+//
+//        Logger broadcastUtilLogger = LoggerFactory.getLogger("org.osc.core.broker.util.TransactionalBroadcastUtil");
+//        broadcastUtilLogger.setLevel(Level.ERROR);
+//
+//        Logger logger = LoggerFactory.getLogger("org.osc.core.broker.job.Job");
+//        logger.setLevel(Level.DEBUG);
+//        logger = LoggerFactory.getLogger("org.osc.core.broker.job.JobEngine");
+//        logger.setLevel(Level.DEBUG);
+//        logger = LoggerFactory.getLogger("org.osc.core.broker.job.TaskNode");
+//        logger.setLevel(Level.DEBUG);
+//        BasicConfigurator.configure();
     }
 
     @AfterClass
@@ -69,7 +69,7 @@ public class JobQueuerTest {
     }
 
     // TODO : re-enable this once the issue #284 is addressed
-    @Test
+//    @Test
     @Ignore // this test is unstable
     public void testPutJob() {
 

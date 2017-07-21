@@ -32,7 +32,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.input.NullInputStream;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.GetDtoFromEntityServiceApi;
 import org.osc.core.broker.service.api.ListJobServiceApi;
 import org.osc.core.broker.service.api.ListTaskServiceApi;
@@ -94,7 +94,7 @@ public class JobView extends CRUDBaseView<JobRecordDto, TaskRecordDto> {
 
     private static final String JOB_HELP_GUID = "GUID-005C8EBC-FABB-4F94-B82A-8F760EFDE69F.html";
 
-    private static final Logger log = Logger.getLogger(JobView.class);
+    private static final Logger log = LoggerFactory.getLogger(JobView.class);
 
     private static final long serialVersionUID = 1L;
 

@@ -17,7 +17,7 @@
 package org.osc.core.broker.rest.client.openstack.openstack4j;
 
 import com.google.common.collect.Maps;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.api.Builders;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.compute.Action;
@@ -43,7 +43,7 @@ import java.util.stream.Collectors;
 
 public class Openstack4JNova extends BaseOpenstack4jApi {
 
-    private static final Logger log = Logger.getLogger(Openstack4JNova.class);
+    private static final Logger log = LoggerFactory.getLogger(Openstack4JNova.class);
 
     private Set<String> regions;
     private static final String OPENSTACK_NAME_PROPERTY = "name";

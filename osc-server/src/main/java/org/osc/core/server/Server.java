@@ -32,7 +32,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.lang.time.DurationFormatUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.JobEngine;
 import org.osc.core.broker.model.entities.events.SystemFailureType;
 import org.osc.core.broker.model.plugin.ApiFactoryService;
@@ -103,7 +103,7 @@ public class Server implements ServerApi {
     private static final long SERVER_TIME_CHANGE_THRESHOLD = 1000 * 60 * 10; // 10 mins
     private static final long TIME_CHANGE_THREAD_SLEEP_INTERVAL = 1000 * 10; // 10 secs
 
-    private static final Logger log = Logger.getLogger(Server.class);
+    private static final Logger log = LoggerFactory.getLogger(Server.class);
 
     private static final Integer DEFAULT_API_PORT = 8090;
     public static final String CONFIG_PROPERTIES_FILE = "vmidcServer.conf";
@@ -256,7 +256,7 @@ public class Server implements ServerApi {
                     try {
                         startScheduler();
                     } catch (SchedulerException se) {
-                        log.fatal("Cannot start scheduler (pid:" + ServerUtil.getCurrentPid()
+                        log.error("Cannot start scheduler (pid:" + ServerUtil.getCurrentPid()
                         + ") due to system time change. Will reboot in 15 seconds", se);
                         handleFatalSystemError(se);
                     }
@@ -269,7 +269,7 @@ public class Server implements ServerApi {
                 saveServerProp("server.reboots", "0");
             }
         } catch (Throwable e) {
-            log.fatal("Cannot start Server (pid:" + ServerUtil.getCurrentPid() + "). Will reboot in 15 seconds", e);
+            log.error("Cannot start Server (pid:" + ServerUtil.getCurrentPid() + "). Will reboot in 15 seconds", e);
             handleFatalSystemError(e);
         }
     }

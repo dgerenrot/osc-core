@@ -18,7 +18,7 @@ package org.osc.core.broker.window.update;
 
 import java.util.HashSet;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.ListApplianceManagerConnectorServiceApi;
 import org.osc.core.broker.service.api.ListApplianceModelSwVersionComboServiceApi;
 import org.osc.core.broker.service.api.ListDomainsByMcIdServiceApi;
@@ -57,7 +57,7 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 public class UpdateDistributedApplianceWindow extends BaseDAWindow {
 
-    private static final Logger log = Logger.getLogger(UpdateDistributedApplianceWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateDistributedApplianceWindow.class);
     final String CAPTION = "Edit Distributed Appliance";
 
     private final DistributedApplianceView daView;

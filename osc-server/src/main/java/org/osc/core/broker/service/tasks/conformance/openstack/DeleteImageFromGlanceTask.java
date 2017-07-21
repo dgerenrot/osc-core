@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.service.tasks.conformance.openstack;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.virtualization.openstack.OsImageReference;
 import org.osc.core.broker.rest.client.openstack.openstack4j.Endpoint;
 import org.osc.core.broker.rest.client.openstack.openstack4j.Openstack4jGlance;
@@ -28,7 +28,7 @@ import javax.persistence.EntityManager;
 
 @Component(service = DeleteImageFromGlanceTask.class)
 public class DeleteImageFromGlanceTask extends TransactionalTask {
-    private final Logger log = Logger.getLogger(DeleteImageFromGlanceTask.class);
+    private final Logger log = LoggerFactory.getLogger(DeleteImageFromGlanceTask.class);
 
     private String region;
     private OsImageReference imageReference;

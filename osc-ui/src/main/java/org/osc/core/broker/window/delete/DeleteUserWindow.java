@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.window.delete;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.DeleteUserServiceApi;
 import org.osc.core.broker.service.request.DeleteUserRequest;
 import org.osc.core.broker.view.UserView;
@@ -34,7 +34,7 @@ public class DeleteUserWindow extends CRUDBaseWindow<OkCancelButtonModel> {
 	 */
     private static final long serialVersionUID = 1L;
 
-    private static final Logger log = Logger.getLogger(DeleteUserWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(DeleteUserWindow.class);
     final String CAPTION = "Delete User";
 
     private final UserView userView;

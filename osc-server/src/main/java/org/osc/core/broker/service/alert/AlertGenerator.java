@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Job;
 import org.osc.core.broker.job.Job.JobCompletionListener;
 import org.osc.core.broker.job.lock.LockObjectReference;
@@ -59,7 +59,7 @@ import org.osgi.service.transaction.control.TransactionControl;
 @Component(service  = {AlertGenerator.class, AlertGeneratorApi.class})
 public class AlertGenerator implements JobCompletionListener, AlertGeneratorApi {
 
-    private static final Logger log = Logger.getLogger(AlertGenerator.class);
+    private static final Logger log = LoggerFactory.getLogger(AlertGenerator.class);
 
     @Reference
     private DBConnectionManager dbConnectionManager;

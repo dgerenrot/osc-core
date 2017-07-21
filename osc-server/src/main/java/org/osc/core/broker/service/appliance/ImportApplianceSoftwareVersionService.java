@@ -24,7 +24,7 @@ import javax.persistence.EntityManager;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.Appliance;
 import org.osc.core.broker.model.entities.appliance.ApplianceSoftwareVersion;
 import org.osc.core.broker.model.entities.appliance.TagEncapsulationType;
@@ -58,7 +58,7 @@ configurationPolicy=ConfigurationPolicy.REQUIRE)
 public class ImportApplianceSoftwareVersionService extends ServiceDispatcher<ImportFileRequest, BaseResponse>
 implements ImportApplianceSoftwareVersionServiceApi {
 
-    private static final Logger log = Logger.getLogger(ImportApplianceSoftwareVersionService.class);
+    private static final Logger log = LoggerFactory.getLogger(ImportApplianceSoftwareVersionService.class);
 
     @Reference
     private ApiFactoryService apiFactoryService;

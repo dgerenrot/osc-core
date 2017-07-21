@@ -23,7 +23,7 @@ import java.io.OutputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.plugin.PluginType;
 import org.osc.core.broker.service.api.server.ServerApi;
 import org.osc.core.broker.service.exceptions.VmidcException;
@@ -50,7 +50,7 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 public class PluginUploader extends CustomComponent implements Receiver, FailedListener, SucceededListener {
 
-    private static final Logger log = Logger.getLogger(PluginUploader.class);
+    private static final Logger log = LoggerFactory.getLogger(PluginUploader.class);
 
     private static int TEMP_FOLDER_COUNTER = 0;
     private final Upload upload;

@@ -25,7 +25,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.compute.Server;
 import org.osc.core.broker.job.Task;
 import org.osc.core.broker.job.TaskGraph;
@@ -110,7 +110,7 @@ public class SecurityGroupUpdateOrDeleteMetaTask extends TransactionalMetaTask {
     private volatile ServiceReference<AddSecurityGroupService> addSecurityGroupServiceSR;
     AddSecurityGroupService addSecurityGroupService;
 
-    private final Logger log = Logger.getLogger(SecurityGroupUpdateOrDeleteMetaTask.class);
+    private final Logger log = LoggerFactory.getLogger(SecurityGroupUpdateOrDeleteMetaTask.class);
 
     private SecurityGroup sg;
     private TaskGraph tg;

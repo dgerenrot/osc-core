@@ -20,7 +20,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.DistributedAppliance;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
@@ -34,7 +34,7 @@ import org.osc.core.broker.service.tasks.TransactionalTask;
 import org.osgi.service.component.annotations.Component;
 @Component(service = ForceDeleteDATask.class)
 public class ForceDeleteDATask extends TransactionalTask {
-    private static final Logger log = Logger.getLogger(ForceDeleteDATask.class);
+    private static final Logger log = LoggerFactory.getLogger(ForceDeleteDATask.class);
 
     private DistributedAppliance da;
 

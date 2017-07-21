@@ -21,7 +21,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.job.lock.LockObjectReference.ObjectType;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
@@ -37,7 +37,7 @@ public class MonitorDistributedApplianceInstanceJob implements Job {
 
     private static final long AGENT_UPDATE_THRESHOLD = 240000; //4 minutes
 
-    private static final Logger log = Logger.getLogger(MonitorDistributedApplianceInstanceJob.class);
+    private static final Logger log = LoggerFactory.getLogger(MonitorDistributedApplianceInstanceJob.class);
 
     public MonitorDistributedApplianceInstanceJob() {
 

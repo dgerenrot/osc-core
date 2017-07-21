@@ -25,7 +25,7 @@ import javax.persistence.EntityManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.filefilter.FileFilterUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.appliance.ApplianceSoftwareVersion;
 import org.osc.core.broker.service.api.DeleteApplianceSoftwareVersionServiceApi;
 import org.osc.core.broker.service.appliance.UploadConfig;
@@ -44,7 +44,7 @@ configurationPolicy=ConfigurationPolicy.REQUIRE)
 public class DeleteApplianceSoftwareVersionService extends ServiceDispatcher<BaseIdRequest, EmptySuccessResponse>
         implements DeleteApplianceSoftwareVersionServiceApi {
 
-    private static final Logger log = Logger.getLogger(DeleteApplianceSoftwareVersionService.class);
+    private static final Logger log = LoggerFactory.getLogger(DeleteApplianceSoftwareVersionService.class);
 
     private String uploadPath;
 

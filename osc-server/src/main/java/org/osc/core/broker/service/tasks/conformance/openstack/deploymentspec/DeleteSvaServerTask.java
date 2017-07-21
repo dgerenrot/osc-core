@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.service.tasks.conformance.openstack.deploymentspec;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.model.compute.Server;
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.DistributedApplianceInstance;
@@ -36,7 +36,7 @@ import java.util.Set;
 @Component(service = DeleteSvaServerTask.class)
 public class DeleteSvaServerTask extends TransactionalTask {
 
-    private final Logger log = Logger.getLogger(DeleteSvaServerTask.class);
+    private final Logger log = LoggerFactory.getLogger(DeleteSvaServerTask.class);
 
     // target ensures this only binds to active runner published by Server
     @Reference(target = "(active=true)")

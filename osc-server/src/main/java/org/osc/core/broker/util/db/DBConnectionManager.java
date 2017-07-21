@@ -29,7 +29,7 @@ import javax.persistence.PersistenceException;
 import javax.sql.DataSource;
 
 import org.apache.commons.lang.RandomStringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.DBConnectionManagerApi;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -51,7 +51,7 @@ configurationPid="org.osc.core.broker.util.db",
 configurationPolicy=ConfigurationPolicy.REQUIRE)
 public class DBConnectionManager implements DBConnectionManagerApi {
 
-    private static final Logger log = Logger.getLogger(DBConnectionManager.class);
+    private static final Logger log = LoggerFactory.getLogger(DBConnectionManager.class);
 
     @Reference
     DBConnectionParameters connectionParams;

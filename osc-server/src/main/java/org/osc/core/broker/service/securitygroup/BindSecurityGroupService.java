@@ -23,7 +23,7 @@ import java.util.TreeSet;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.Job;
 import org.osc.core.broker.model.entities.appliance.VirtualSystem;
 import org.osc.core.broker.model.entities.management.Policy;
@@ -56,7 +56,7 @@ import org.osgi.service.component.annotations.Reference;
 public class BindSecurityGroupService extends ServiceDispatcher<BindSecurityGroupRequest, BaseJobResponse>
         implements BindSecurityGroupServiceApi {
 
-    private static final Logger log = Logger.getLogger(BindSecurityGroupService.class);
+    private static final Logger log = LoggerFactory.getLogger(BindSecurityGroupService.class);
 
     @Reference
     private ConformService conformService;

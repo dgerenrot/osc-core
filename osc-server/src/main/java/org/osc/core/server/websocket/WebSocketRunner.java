@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.events.SystemFailureType;
 import org.osc.core.broker.model.entities.management.ApplianceManagerConnector;
@@ -57,7 +57,7 @@ public class WebSocketRunner implements BroadcastListener {
     private static final int MAX_TRIES = 10;
     private static final int TRY_WAIT_MS = 500;
 
-    private static final Logger log = Logger.getLogger(WebSocketRunner.class);
+    private static final Logger log = LoggerFactory.getLogger(WebSocketRunner.class);
     private final HashMap<Long, WebSocketClient> webSocketConnections = new HashMap<Long, WebSocketClient>();
 
     private List<ApplianceManagerConnector> amcs = new ArrayList<>();

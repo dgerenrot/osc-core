@@ -20,7 +20,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.appliance.DistributedAppliance;
 import org.osc.core.broker.model.entities.events.SystemFailureType;
@@ -37,7 +37,7 @@ import org.quartz.JobExecutionException;
 
 public class SyncDistributedApplianceJob implements Job {
 
-    private static final Logger log = Logger.getLogger(SyncDistributedApplianceJob.class);
+    private static final Logger log = LoggerFactory.getLogger(SyncDistributedApplianceJob.class);
 
     public SyncDistributedApplianceJob() {
 

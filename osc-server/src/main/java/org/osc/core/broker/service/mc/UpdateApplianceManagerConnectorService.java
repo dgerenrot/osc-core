@@ -24,7 +24,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockManager;
 import org.osc.core.broker.job.lock.LockRequest;
 import org.osc.core.broker.job.lock.LockRequest.LockType;
@@ -69,7 +69,7 @@ public class UpdateApplianceManagerConnectorService
 extends ServiceDispatcher<DryRunRequest<ApplianceManagerConnectorRequest>, BaseJobResponse>
 implements UpdateApplianceManagerConnectorServiceApi {
 
-    static final Logger log = Logger.getLogger(UpdateApplianceManagerConnectorService.class);
+    static final Logger log = LoggerFactory.getLogger(UpdateApplianceManagerConnectorService.class);
 
     @Reference
     private ConformService conformService;

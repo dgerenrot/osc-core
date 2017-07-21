@@ -40,7 +40,7 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 @Component(service=CreateMgrSecurityGroupTask.class)
 public class CreateMgrSecurityGroupTask extends TransactionalTask {
-    //private static final Logger log = Logger.getLogger(CreateMgrEndpointGroupTask.class);
+    //private static final Logger log = LoggerFactory.getLogger(CreateMgrEndpointGroupTask.class);
 
     @Reference
     private ApiFactoryService apiFactoryService;

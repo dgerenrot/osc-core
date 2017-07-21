@@ -19,7 +19,7 @@ package org.osc.core.broker.view.deploymentspec;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.ListAvailabilityZonesServiceApi;
 import org.osc.core.broker.service.api.ListFloatingIpPoolsServiceApi;
 import org.osc.core.broker.service.api.ListHostAggregateServiceApi;
@@ -48,7 +48,7 @@ public class UpdateDeploymentSpecWindow extends BaseDeploymentSpecWindow {
      *
      */
     private static final long serialVersionUID = 1L;
-    private static final Logger log = Logger.getLogger(UpdateDeploymentSpecWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateDeploymentSpecWindow.class);
     final String CAPTION = "Edit Deployment Specification";
 
     private UpdateDeploymentSpecServiceApi updateDeploymentSpecService;

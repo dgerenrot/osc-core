@@ -24,7 +24,7 @@ import javax.websocket.ClientEndpointConfig;
 import javax.websocket.CloseReason;
 import javax.websocket.Session;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.glassfish.grizzly.ssl.SSLEngineConfigurator;
 import org.glassfish.grizzly.threadpool.ThreadPoolConfig;
 import org.glassfish.tyrus.client.ClientManager;
@@ -66,7 +66,7 @@ public class WebSocketClient {
         return this.mc;
     }
 
-    private final static Logger log = Logger.getLogger(WebSocketClient.class);
+    private final static Logger log = LoggerFactory.getLogger(WebSocketClient.class);
     private final ManagerApi managerApis;
     private final ApiFactoryService apiFactoryService;
 

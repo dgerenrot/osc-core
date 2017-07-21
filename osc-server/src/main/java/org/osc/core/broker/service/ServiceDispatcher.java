@@ -22,7 +22,7 @@ import java.util.concurrent.Callable;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.hibernate.StaleObjectStateException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.osc.core.broker.service.api.ServiceDispatcherApi;
@@ -45,7 +45,7 @@ import com.google.common.annotations.VisibleForTesting;
 
 public abstract class ServiceDispatcher<I extends Request, O extends Response> implements ServiceDispatcherApi<I, O> {
 
-    private static final Logger log = Logger.getLogger(ServiceDispatcher.class);
+    private static final Logger log = LoggerFactory.getLogger(ServiceDispatcher.class);
     private EntityManager em = null;
 
     /**

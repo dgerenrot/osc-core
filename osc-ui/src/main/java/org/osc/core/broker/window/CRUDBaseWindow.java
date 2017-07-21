@@ -20,7 +20,7 @@ import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.VerticalLayout;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.view.PageInformationComponent;
 import org.osc.core.broker.view.common.StyleConstants;
 import org.osc.core.broker.view.util.ViewUtil;
@@ -33,7 +33,7 @@ import org.osc.core.broker.window.button.OkCancelButtonModel;
 @SuppressWarnings("serial")
 public abstract class CRUDBaseWindow<T extends OkCancelButtonModel> extends VmidcWindow<T> {
 
-    private static final Logger log = Logger.getLogger(CRUDBaseWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(CRUDBaseWindow.class);
 
     protected FormLayout form = null;
     protected VerticalLayout content;

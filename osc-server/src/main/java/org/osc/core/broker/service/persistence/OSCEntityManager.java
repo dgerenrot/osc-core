@@ -29,7 +29,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Root;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.IscEntity;
 import org.osc.core.broker.model.entities.User;
 import org.osc.core.broker.model.entities.appliance.VirtualSystem;
@@ -49,7 +49,7 @@ import org.osc.core.broker.util.TransactionalBroadcastUtil;
 
 public class OSCEntityManager<T extends IscEntity> {
 
-    private static final Logger log = Logger.getLogger(OSCEntityManager.class);
+    private static final Logger log = LoggerFactory.getLogger(OSCEntityManager.class);
 
     protected EntityManager em;
     private Class<T> clazz;

@@ -18,7 +18,7 @@ package org.osc.core.broker.service.tasks.passwordchange;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.TaskGraph;
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.job.lock.LockObjectReference.ObjectType;
@@ -40,7 +40,7 @@ import org.osgi.service.component.annotations.Reference;
 @Component(service = PasswordChangePropagateMgrMetaTask.class)
 public class PasswordChangePropagateMgrMetaTask extends TransactionalMetaTask {
 
-    final static Logger log = Logger.getLogger(PasswordChangePropagateMgrMetaTask.class);
+    final static Logger log = LoggerFactory.getLogger(PasswordChangePropagateMgrMetaTask.class);
 
     @Reference
     private MCConformanceCheckMetaTask mcConformanceCheckMetaTask;

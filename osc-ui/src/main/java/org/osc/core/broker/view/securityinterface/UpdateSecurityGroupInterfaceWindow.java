@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.securityinterface;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.ListVirtualSystemPolicyServiceApi;
 import org.osc.core.broker.service.api.UpdateSecurityGroupInterfaceServiceApi;
 import org.osc.core.broker.service.dto.PolicyDto;
@@ -34,7 +34,7 @@ public class UpdateSecurityGroupInterfaceWindow extends BaseSecurityGroupInterfa
      */
     private static final long serialVersionUID = 1L;
 
-    private static final Logger log = Logger.getLogger(UpdateSecurityGroupInterfaceWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateSecurityGroupInterfaceWindow.class);
     private final SecurityGroupInterfaceDto dto;
 
     final String CAPTION = "Update Policy Mapping";

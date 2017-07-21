@@ -32,7 +32,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.rest.server.ApiUtil;
 import org.osc.core.broker.rest.server.OscAuthFilter;
 import org.osc.core.broker.rest.server.ServerRestConstants;
@@ -75,7 +75,7 @@ import io.swagger.annotations.Authorization;
 @OscAuth
 public class ApplianceApis {
 
-    private static final Logger logger = Logger.getLogger(ApplianceApis.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApplianceApis.class);
 
     @Reference
     private ApiUtil apiUtil;

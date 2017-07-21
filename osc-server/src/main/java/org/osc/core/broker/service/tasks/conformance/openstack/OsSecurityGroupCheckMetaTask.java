@@ -25,7 +25,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.openstack4j.api.Builders;
 import org.openstack4j.model.network.SecurityGroup;
 import org.openstack4j.model.network.SecurityGroupRule;
@@ -49,7 +49,7 @@ import com.google.common.collect.ImmutableList;
 @Component(service = OsSecurityGroupCheckMetaTask.class)
 public class OsSecurityGroupCheckMetaTask extends TransactionalMetaTask {
 
-    private static final Logger log = Logger.getLogger(OsSecurityGroupCheckMetaTask.class);
+    private static final Logger log = LoggerFactory.getLogger(OsSecurityGroupCheckMetaTask.class);
 
     @Reference
     CreateOsSecurityGroupTask createOsSecurityGroupTask;

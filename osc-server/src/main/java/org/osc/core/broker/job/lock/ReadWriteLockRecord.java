@@ -19,7 +19,7 @@ package org.osc.core.broker.job.lock;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.joda.time.DateTime;
 import org.osc.core.broker.job.Task;
 import org.osc.core.broker.job.lock.LockRequest.LockType;
@@ -29,7 +29,7 @@ import com.google.common.collect.Maps;
 
 class ReadWriteLockRecord {
 
-    private static final Logger log = Logger.getLogger(ReadWriteLockRecord.class);
+    private static final Logger log = LoggerFactory.getLogger(ReadWriteLockRecord.class);
 
     private LockType lockType = LockType.UNKNOWN_LOCK;
 

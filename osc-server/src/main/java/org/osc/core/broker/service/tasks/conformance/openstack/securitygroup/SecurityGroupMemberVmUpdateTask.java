@@ -21,7 +21,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupMember;
 import org.osc.core.broker.model.entities.virtualization.openstack.VM;
 import org.osc.core.broker.model.entities.virtualization.openstack.VMPort;
@@ -34,7 +34,7 @@ import org.osgi.service.component.annotations.Component;
 @Component(service=SecurityGroupMemberVmUpdateTask.class)
 public class SecurityGroupMemberVmUpdateTask extends TransactionalTask {
 
-    private final Logger log = Logger.getLogger(SecurityGroupMemberVmUpdateTask.class);
+    private final Logger log = LoggerFactory.getLogger(SecurityGroupMemberVmUpdateTask.class);
 
     private SecurityGroupMember sgm;
     private VmInfo vmInfo;

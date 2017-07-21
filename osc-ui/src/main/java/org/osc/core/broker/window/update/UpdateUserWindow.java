@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.window.update;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.UpdateUserServiceApi;
 import org.osc.core.broker.service.api.server.ServerApi;
 import org.osc.core.broker.service.dto.UserDto;
@@ -41,7 +41,7 @@ public class UpdateUserWindow extends CRUDBaseWindow<OkCancelButtonModel> {
      */
     private static final long serialVersionUID = 1L;
     final String CAPTION = "Edit User";
-    private static final Logger log = Logger.getLogger(UpdateUserWindow.class);
+    private static final Logger log = LoggerFactory.getLogger(UpdateUserWindow.class);
 
     public static final String ROLE_ADMIN = "ADMIN";
 

@@ -16,7 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.service.tasks.conformance.openstack.deploymentspec;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.virtualization.openstack.DeploymentSpec;
 import org.osc.core.broker.rest.client.openstack.openstack4j.Endpoint;
@@ -34,7 +34,7 @@ import java.util.Set;
 @Component(service = ValidateDSNetworkTask.class)
 public class ValidateDSNetworkTask extends TransactionalTask {
 
-    final Logger log = Logger.getLogger(ValidateDSNetworkTask.class);
+    final Logger log = LoggerFactory.getLogger(ValidateDSNetworkTask.class);
 
     enum NetworkType {
         MANAGEMENT("Management"), INSPECTION("Inspection");

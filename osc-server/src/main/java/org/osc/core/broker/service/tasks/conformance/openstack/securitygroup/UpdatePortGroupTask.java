@@ -22,7 +22,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.model.entities.virtualization.SecurityGroup;
 import org.osc.core.broker.model.entities.virtualization.SecurityGroupMember;
 import org.osc.core.broker.model.plugin.ApiFactoryService;
@@ -37,7 +37,7 @@ import org.osgi.service.component.annotations.Reference;
 
 @Component(service=UpdatePortGroupTask.class)
 public class UpdatePortGroupTask  extends TransactionalTask{
-    private static final Logger LOG = Logger.getLogger(UpdatePortGroupTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UpdatePortGroupTask.class);
 
     @Reference
     private ApiFactoryService apiFactoryService;

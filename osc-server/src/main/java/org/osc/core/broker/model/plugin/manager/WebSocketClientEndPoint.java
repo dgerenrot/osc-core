@@ -24,7 +24,7 @@ import javax.websocket.EndpointConfig;
 import javax.websocket.MessageHandler;
 import javax.websocket.Session;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.events.SystemFailureType;
 import org.osc.core.broker.model.entities.management.ApplianceManagerConnector;
@@ -36,7 +36,7 @@ import org.osc.sdk.manager.element.MgrChangeNotification;
 
 public class WebSocketClientEndPoint extends Endpoint {
 
-    private static final Logger log = Logger.getLogger(WebSocketClientEndPoint.class);
+    private static final Logger log = LoggerFactory.getLogger(WebSocketClientEndPoint.class);
 
     private boolean isProcessingMessage = false;
     private final ApplianceManagerConnector mc;
