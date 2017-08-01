@@ -69,7 +69,7 @@ public class ServerControl {
 
     public static void main(final String[] args) throws Exception {
 
-        LogUtil.initLog4j();
+        LogUtil.initLogging(null);
 
         loadServerProps();
 

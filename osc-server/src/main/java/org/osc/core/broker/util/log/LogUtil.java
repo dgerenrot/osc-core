@@ -18,14 +18,68 @@ package org.osc.core.broker.util.log;
 
 import java.io.PrintStream;
 
-import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
+import org.apache.log4j.PropertyConfigurator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory;
+import org.slf4j.log4j12.Log4j12ServiceProvider;
+import org.slf4j.log4j12.Log4jLoggerFactory;
 //import org.apache.log4j.PropertyConfigurator;
+import org.slf4j.spi.SLF4JServiceProvider;
 
 public class LogUtil {
 
-    public static void initLog4j() {
+	private static BundleContext context;
+	private static ILoggerFactory loggerFactory;
+
+	public static Logger getLogger(Class<?> clazz) {
+		return getLoggerFactory().getLogger(clazz.getName());
+	}
+
+	public static Logger getLogger(String className) {
+		return getLoggerFactory().getLogger(className);
+	}
+	
+	public static ILoggerFactory getLoggerFactory() {
+		
+		if (loggerFactory != null) {
+			return loggerFactory;
+		}
+
+		if (context != null) {
+			ServiceReference<ILoggerFactory> reference = context.getServiceReference(ILoggerFactory.class);			
+			loggerFactory = context.getService(reference);
+			return loggerFactory;
+		} 
+
+//		if (context != null) {
+//			ServiceReference<SLF4JServiceProvider> reference = context.getServiceReference(SLF4JServiceProvider.class);
+//			SLF4JServiceProvider provider = context.getService(reference);
+//			loggerFactory = provider.getLoggerFactory();
+//			return loggerFactory;
+//		} 
+				
+		ILoggerFactory factory = LoggerFactory.getILoggerFactory(); 
+		Logger log = factory.getLogger(LogUtil.class.getName());
+		log.warn("Attempt to use logging before OSGi Service is registered!");
+		return factory; // TODO 
+	}
+	
+    public static synchronized void initLogging(BundleContext context) {
         try {
-//            PropertyConfigurator.configureAndWatch("./log4j.properties");
+    
+        	if (context != null) {
+	        	LogUtil.context = context;
+	        	
+	        	PropertyConfigurator.configureAndWatch("./log4j.properties");
+	        	Log4j12ServiceProvider provider = new Log4j12ServiceProvider();
+	        	provider.initialize();
+	        	ILoggerFactory factory = provider.getLoggerFactory();
+	        	// context.registerService(SLF4JServiceProvider.class, provider, null);
+	        	context.registerService(ILoggerFactory.class, factory, null);
+        	}
+        	
             StdOutErrLog.tieSystemOutAndErrToLog();
         } catch (Exception ex) {
             System.out.println("failed to initialize log4j");

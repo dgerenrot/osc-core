@@ -180,7 +180,7 @@ public class Server implements ServerApi {
             @Override
             public void run() {
                 try {
-                    startServer();
+                    startServer(context);
                 } catch (Exception e) {
                     log.error("startServer failed", e);
                 }
@@ -191,8 +191,8 @@ public class Server implements ServerApi {
         this.thread.start();
     }
 
-    private void startServer() throws Exception {
-        LogUtil.initLog4j();
+    private void startServer(BundleContext context) throws Exception {
+        LogUtil.initLogging(context);
         loadServerProps();
 
         try {

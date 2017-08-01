@@ -133,7 +133,7 @@
                 <module>osc-installer</module>
                 <module>osc-installer-test</module>
                 <module>osc-installer-simple</module>
-
+				<module>osc-log4j-config-fragment</module>
                 <module>osc-resolver</module>
                 <module>osc-export</module>
             </modules>

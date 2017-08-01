@@ -36,6 +36,7 @@ import org.osc.core.broker.service.ssl.SslCertificatesExtendedException;
 import org.osc.core.broker.util.ServerUtil;
 import org.osc.core.broker.util.TransactionalBroadcastUtil;
 import org.osc.core.broker.util.db.DBConnectionManager;
+import org.osc.core.broker.util.log.LogUtil;
 import org.osc.core.server.Server;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.transaction.control.ScopedWorkException;
@@ -45,7 +46,7 @@ import com.google.common.annotations.VisibleForTesting;
 
 public abstract class ServiceDispatcher<I extends Request, O extends Response> implements ServiceDispatcherApi<I, O> {
 
-    private static final Logger log = LoggerFactory.getLogger(ServiceDispatcher.class);
+    private static Logger log;
     private EntityManager em = null;
 
     /**
@@ -72,6 +73,12 @@ public abstract class ServiceDispatcher<I extends Request, O extends Response> i
     // service handler
     @Override
     public O dispatch(I request) throws Exception {
+
+    	if (log == null) {
+    		log = LogUtil.getLogger(ServiceDispatcher.class);
+    	}
+    	
+    	log.info("USING THE NEW LOGGING MECHANISM!!!!");
         log.info("Service dispatch " + this.getClass().getSimpleName() + ". User: " + this.userContext.getCurrentUser()
         + ", Request: " + request);
 
