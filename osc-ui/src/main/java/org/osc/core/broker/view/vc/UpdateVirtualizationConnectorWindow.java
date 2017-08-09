@@ -16,6 +16,7 @@
  *******************************************************************************/
 package org.osc.core.broker.view.vc;
 
+import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.osc.core.broker.service.api.UpdateVirtualizationConnectorServiceApi;
 import org.osc.core.broker.service.api.plugin.PluginService;
@@ -29,12 +30,16 @@ import org.osc.core.broker.service.response.BaseJobResponse;
 import org.osc.core.broker.service.ssl.X509TrustManagerApi;
 import org.osc.core.broker.view.util.ViewUtil;
 import org.osc.core.common.controller.ControllerType;
+import org.osc.core.common.logging.NoOSGiLogUtil;
+import org.osgi.framework.BundleContext;
+import org.osgi.service.component.annotations.Reference;
 
 public class UpdateVirtualizationConnectorWindow extends BaseVCWindow {
 
     private static final long serialVersionUID = 1L;
 
     private static final Logger log = LoggerFactory.getLogger(UpdateVirtualizationConnectorWindow.class);
+ 
 
     final String CAPTION = "Edit Virtualization Connector";
 
@@ -94,7 +99,10 @@ public class UpdateVirtualizationConnectorWindow extends BaseVCWindow {
                 // creating add request with user entered data
                 DryRunRequest<VirtualizationConnectorRequest> updateRequest = createRequest();
                 updateRequest.getDto().setId(this.currentVCObject.getBean().getId());
+                
+                NoOSGiLogUtil.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from NOn-OSGI-aware class! Horray!");
                 log.debug("Updating virtualization connector - " + this.name.getValue().trim());
+
                 // no response needed for update request
                 BaseJobResponse response = this.updateVirtualizationConnectorService.dispatch(updateRequest);
                 close();

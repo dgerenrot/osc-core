@@ -31,8 +31,10 @@ import org.osc.core.broker.service.broadcast.BroadcastListener;
 import org.osc.core.broker.service.broadcast.BroadcastMessage;
 import org.osc.core.broker.service.broadcast.EventType;
 import org.osc.core.broker.service.dto.UserDto;
+import org.osc.core.common.logging.OSGiLog;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import com.vaadin.server.VaadinSession;
 
@@ -44,13 +46,18 @@ import com.vaadin.server.VaadinSession;
 public class UiListenerDelegate implements HttpSessionListener, ServerTerminationListener,
     BroadcastListener {
 
+	@Reference
+	OSGiLog loggerFactory;
+	
     private HttpSessionListener delegate;
 
     private final List<HttpSession> sessions = new CopyOnWriteArrayList<>();
-
+    
+ 
     @Activate
     void activate() {
-        this.delegate = new SessionSupport();
+        this.delegate = new SessionSupport();   
+        loggerFactory.getLogger(UiListenerDelegate.class).info("Activated UiListenerDelegate and logging about it!");
     }
 
     @Override

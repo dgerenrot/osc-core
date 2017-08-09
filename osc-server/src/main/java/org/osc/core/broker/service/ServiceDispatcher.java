@@ -22,6 +22,7 @@ import java.util.concurrent.Callable;
 
 import javax.persistence.EntityManager;
 
+import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.hibernate.StaleObjectStateException;
 import org.hibernate.exception.ConstraintViolationException;
@@ -37,6 +38,7 @@ import org.osc.core.broker.util.ServerUtil;
 import org.osc.core.broker.util.TransactionalBroadcastUtil;
 import org.osc.core.broker.util.db.DBConnectionManager;
 import org.osc.core.broker.util.log.LogUtil;
+import org.osc.core.common.logging.OSGiLog;
 import org.osc.core.server.Server;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.transaction.control.ScopedWorkException;
@@ -47,6 +49,7 @@ import com.google.common.annotations.VisibleForTesting;
 public abstract class ServiceDispatcher<I extends Request, O extends Response> implements ServiceDispatcherApi<I, O> {
 
     private static Logger log;
+    
     private EntityManager em = null;
 
     /**
@@ -66,6 +69,9 @@ public abstract class ServiceDispatcher<I extends Request, O extends Response> i
 
     @Reference
     protected TransactionalBroadcastUtil txBroadcastUtil;
+    
+    @Reference
+    protected OSGiLog loggerFactory;
 
     private final Queue<ChainedDispatch<O>> chainedDispatches = new LinkedList<>();
 
@@ -75,7 +81,8 @@ public abstract class ServiceDispatcher<I extends Request, O extends Response> i
     public O dispatch(I request) throws Exception {
 
     	if (log == null) {
-    		log = LogUtil.getLogger(ServiceDispatcher.class);
+//    		loggerFactory = LogUtil.getLoggerFactory();
+    		log = loggerFactory.getLogger(ServiceDispatcher.class.getName());
     	}
     	
     	log.info("USING THE NEW LOGGING MECHANISM!!!!");

@@ -117,6 +117,12 @@
 			<artifactId>osc-domain</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+	
+		<dependency>
+			<groupId>biz.aQute.bnd</groupId>
+			<artifactId>biz.aQute.repository</artifactId>
+			<version>3.3.0</version>
+		</dependency>
 		
 		<dependency>
 			<groupId>org.osc.core</groupId>

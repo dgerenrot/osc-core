@@ -49,6 +49,14 @@
                 <version>6.0.1</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>osgi.core</artifactId>
+                <version>6.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+            
+            
             <!-- Testing Dependencies -->
             <dependency>
                 <groupId>junit</groupId>
@@ -133,7 +141,7 @@
                 <module>osc-installer</module>
                 <module>osc-installer-test</module>
                 <module>osc-installer-simple</module>
-				<module>osc-log4j-config-fragment</module>
+				
                 <module>osc-resolver</module>
                 <module>osc-export</module>
             </modules>
