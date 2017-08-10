@@ -31,6 +31,7 @@ import org.osc.core.broker.service.ssl.X509TrustManagerApi;
 import org.osc.core.broker.view.util.ViewUtil;
 import org.osc.core.common.controller.ControllerType;
 import org.osc.core.common.logging.NoOSGiLogUtil;
+import org.osc.core.ui.LogComponent;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Reference;
 
@@ -100,7 +101,7 @@ public class UpdateVirtualizationConnectorWindow extends BaseVCWindow {
                 DryRunRequest<VirtualizationConnectorRequest> updateRequest = createRequest();
                 updateRequest.getDto().setId(this.currentVCObject.getBean().getId());
                 
-                NoOSGiLogUtil.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from NOn-OSGI-aware class! Horray!");
+                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!");
                 log.debug("Updating virtualization connector - " + this.name.getValue().trim());
 
                 // no response needed for update request

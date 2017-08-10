@@ -28,11 +28,18 @@
 	<name>org.osc.core:osc-common</name>
 	
     <dependencies>
+    
+   		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.cmpn</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+    
         <dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>osgi.annotation</artifactId>
-			<scope>provided</scope>
 		</dependency>
+		
  		<dependency>
 			<groupId>biz.aQute.bnd</groupId>
 			<artifactId>biz.aQute.repository</artifactId>
