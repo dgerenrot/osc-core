@@ -70,8 +70,6 @@ public abstract class ServiceDispatcher<I extends Request, O extends Response> i
     protected TransactionalBroadcastUtil txBroadcastUtil;
     
 
-    protected ILoggerFactory loggerFactory;
-
     private final Queue<ChainedDispatch<O>> chainedDispatches = new LinkedList<>();
 
     // generalized method to dispatch incoming requests to the appropriate
@@ -79,12 +77,11 @@ public abstract class ServiceDispatcher<I extends Request, O extends Response> i
     @Override
     public O dispatch(I request) throws Exception {
 
-    	if (log == null) {
-    		loggerFactory = LogUtil.getLoggerFactory();
-    		log = loggerFactory.getLogger(ServiceDispatcher.class.getName());
+    	if (log == null) {    		
+    		log = LogUtil.getLogger(ServiceDispatcher.class.getName());
     	}
     	
-    	log.info("USING THE NEW LOGGING MECHANISM!!!!");
+    	log.info("USING THE NEW LOGGING MECHANISM!  !!!!");
         log.info("Service dispatch " + this.getClass().getSimpleName() + ". User: " + this.userContext.getCurrentUser()
         + ", Request: " + request);
 

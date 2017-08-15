@@ -52,18 +52,11 @@ public class LogUtil {
 			loggerFactory = context.getService(reference);
 			return loggerFactory;
 		} 
-
-//		if (context != null) {
-//			ServiceReference<SLF4JServiceProvider> reference = context.getServiceReference(SLF4JServiceProvider.class);
-//			SLF4JServiceProvider provider = context.getService(reference);
-//			loggerFactory = provider.getLoggerFactory();
-//			return loggerFactory;
-//		} 
 				
 		ILoggerFactory factory = LoggerFactory.getILoggerFactory(); 
 		Logger log = factory.getLogger(LogUtil.class.getName());
 		log.warn("Attempt to use logging before OSGi Service is registered!");
-		return factory; // TODO 
+		return factory; 
 	}
 	
     public static synchronized void initLogging(BundleContext context) {
@@ -74,7 +67,6 @@ public class LogUtil {
 	        	
 	        	PropertyConfigurator.configureAndWatch("./log4j.properties");
 	        	
-	        	// TODO
 	        	Log4j12ServiceProvider provider = new Log4j12ServiceProvider();
 	        	provider.initialize();
 	        	
