@@ -76,10 +76,11 @@ public class LogUtil {
 	        	
 	        	// TODO
 	        	Log4j12ServiceProvider provider = new Log4j12ServiceProvider();
-//	        	provider.initialize();
-//	        	ILoggerFactory factory = provider.getLoggerFactory();
-	        	// context.registerService(SLF4JServiceProvider.class, provider, null);
-//	        	context.registerService(ILoggerFactory.class, factory, null);
+	        	provider.initialize();
+	        	
+	        	ILoggerFactory factory = provider.getLoggerFactory();        	
+	        	context.registerService(SLF4JServiceProvider.class, provider, null);
+	        	context.registerService(ILoggerFactory.class, factory, null);
         	}
         	
             StdOutErrLog.tieSystemOutAndErrToLog();

@@ -22,8 +22,6 @@ import java.util.concurrent.Callable;
 
 import javax.persistence.EntityManager;
 
-import org.slf4j.ILoggerFactory;
-import org.slf4j.Logger; import org.slf4j.LoggerFactory; 
 import org.hibernate.StaleObjectStateException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.osc.core.broker.service.api.ServiceDispatcherApi;
@@ -38,11 +36,12 @@ import org.osc.core.broker.util.ServerUtil;
 import org.osc.core.broker.util.TransactionalBroadcastUtil;
 import org.osc.core.broker.util.db.DBConnectionManager;
 import org.osc.core.broker.util.log.LogUtil;
-import org.osc.core.common.logging.OSGiLog;
 import org.osc.core.server.Server;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.transaction.control.ScopedWorkException;
 import org.osgi.service.transaction.control.TransactionControl;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
 
 import com.google.common.annotations.VisibleForTesting;
 
@@ -70,8 +69,8 @@ public abstract class ServiceDispatcher<I extends Request, O extends Response> i
     @Reference
     protected TransactionalBroadcastUtil txBroadcastUtil;
     
-    @Reference
-    protected OSGiLog loggerFactory;
+
+    protected ILoggerFactory loggerFactory;
 
     private final Queue<ChainedDispatch<O>> chainedDispatches = new LinkedList<>();
 
@@ -81,7 +80,7 @@ public abstract class ServiceDispatcher<I extends Request, O extends Response> i
     public O dispatch(I request) throws Exception {
 
     	if (log == null) {
-//    		loggerFactory = LogUtil.getLoggerFactory();
+    		loggerFactory = LogUtil.getLoggerFactory();
     		log = loggerFactory.getLogger(ServiceDispatcher.class.getName());
     	}
     	

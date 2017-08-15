@@ -8,6 +8,8 @@ Import-Package:\
     ${import-jta},\
     *
 
+Provide-Capability: osgi.service;objectClass=org.slf4j.ILoggerFactory
+
 # Match jclouds guava import range to reduce the risk of pain.
 # JClouds has a poor API which leaks guava details, so we need 
 # to wire to the same guava as they do. Hence the wider range

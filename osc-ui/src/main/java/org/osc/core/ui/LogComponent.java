@@ -16,26 +16,25 @@
  *******************************************************************************/
 package org.osc.core.ui;
 
-import org.osc.core.common.logging.OSGiLog;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component
 public class LogComponent {
 
-	@Reference 
-	OSGiLog osgiLog;
-	
-	private static OSGiLog loggerFactory;
+	private static BundleContext context;
+	private static ILoggerFactory loggerFactory;
 	
 	@Activate
 	public void activate(BundleContext context) {
-		if (loggerFactory == null) {
-			loggerFactory = osgiLog;
-		}		
+		LogComponent.context = context;
+		init(context);
 	}
 	
 	/**
@@ -44,7 +43,37 @@ public class LogComponent {
 	 * @return
 	 */
 	public static Logger getLogger(Class clazz) {
-		return loggerFactory.getLogger(clazz);
+		return getLogger(clazz.getName());
 	}
 	
+	/**
+	 * Intended for use by non-osgi - aware components only
+	 * @param className
+	 * @return
+	 */
+	public static Logger getLogger(String className) {
+		if (loggerFactory != null) {
+			return loggerFactory.getLogger(className);	
+		} else {
+			init(context);	
+			if (loggerFactory != null) {
+				return loggerFactory.getLogger(className);	
+			} 
+		}
+		
+		return LoggerFactory.getLogger(className);
+		
+	}
+	
+	private static void init(BundleContext context) {
+		if (context != null) {
+			LogComponent.context = context;
+			
+			ServiceReference<ILoggerFactory> ref = context.getServiceReference(ILoggerFactory.class);
+			if (ref != null) {
+				loggerFactory = context.getService(ref);
+			}
+		}		
+
+	}
 }

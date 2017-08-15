@@ -16,7 +16,9 @@
  *******************************************************************************/
 package org.osc.core.ui;
 
-import static org.osgi.service.http.whiteboard.HttpWhiteboardConstants.*;
+import static org.osgi.service.http.whiteboard.HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME;
+import static org.osgi.service.http.whiteboard.HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT;
+import static org.osgi.service.http.whiteboard.HttpWhiteboardConstants.HTTP_WHITEBOARD_TARGET;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -31,10 +33,10 @@ import org.osc.core.broker.service.broadcast.BroadcastListener;
 import org.osc.core.broker.service.broadcast.BroadcastMessage;
 import org.osc.core.broker.service.broadcast.EventType;
 import org.osc.core.broker.service.dto.UserDto;
-import org.osc.core.common.logging.OSGiLog;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.slf4j.ILoggerFactory;
 
 import com.vaadin.server.VaadinSession;
 
@@ -46,8 +48,8 @@ import com.vaadin.server.VaadinSession;
 public class UiListenerDelegate implements HttpSessionListener, ServerTerminationListener,
     BroadcastListener {
 
-	@Reference
-	OSGiLog loggerFactory;
+	
+	ILoggerFactory loggerFactory;
 	
     private HttpSessionListener delegate;
 
@@ -56,8 +58,11 @@ public class UiListenerDelegate implements HttpSessionListener, ServerTerminatio
  
     @Activate
     void activate() {
-        this.delegate = new SessionSupport();   
-        loggerFactory.getLogger(UiListenerDelegate.class).info("Activated UiListenerDelegate and logging about it!");
+        this.delegate = new SessionSupport();
+        
+        LogComponent.getLogger(UiListenerDelegate.class.getName()).info("Activated UiListenerDelegate and logging about it!_!_!_!_!_!_!_!_!_!_!_!");
+        LogComponent.getLogger(UiListenerDelegate.class.getName()).info("Activated UiListenerDelegate and logging about it!_!_!_!_!_!_!_!_!_!_!_!");
+        LogComponent.getLogger(UiListenerDelegate.class.getName()).info("Activated UiListenerDelegate and logging about it!_!_!_!_!_!_!_!_!_!_!_!");
     }
 
     @Override
