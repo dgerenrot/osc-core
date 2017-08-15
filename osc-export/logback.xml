@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+ 
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+    </layout>
+  </appender>
+  <appender name="LOGIFLE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+    </layout>
+	<file>C:\tmp\osc.log</file>
+  </appender>
+   <!-- 
+  <logger name="com.myPackage" level="TRACE"/>
+    -->
+ 
+  <root level="debug">
+    <appender-ref ref="STDOUT" />
+	<appender-ref ref="LOGFILE" />
+  </root>
+</configuration>

@@ -18,15 +18,15 @@ package org.osc.core.broker.util.log;
 
 import java.io.PrintStream;
 
-import org.apache.log4j.PropertyConfigurator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.slf4j.ILoggerFactory;
-import org.slf4j.Logger; import org.slf4j.LoggerFactory;
-import org.slf4j.log4j12.Log4j12ServiceProvider;
-import org.slf4j.log4j12.Log4jLoggerFactory;
-//import org.apache.log4j.PropertyConfigurator;
-import org.slf4j.spi.SLF4JServiceProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.classic.joran.JoranConfigurator;
+import ch.qos.logback.core.joran.spi.JoranException;
 
 public class LogUtil {
 
@@ -65,14 +65,19 @@ public class LogUtil {
         	if (context != null) {
 	        	LogUtil.context = context;
 	        	
-	        	PropertyConfigurator.configureAndWatch("./log4j.properties");
+	        	LoggerContext provider = new LoggerContext();
 	        	
-	        	Log4j12ServiceProvider provider = new Log4j12ServiceProvider();
-	        	provider.initialize();
+	        	try {
+		        	JoranConfigurator configurator = new JoranConfigurator();
+		        	configurator.setContext(provider);
+		        	provider.reset();
+		        	configurator.doConfigure("./logback.xml");
 	        	
-	        	ILoggerFactory factory = provider.getLoggerFactory();        	
-	        	context.registerService(SLF4JServiceProvider.class, provider, null);
-	        	context.registerService(ILoggerFactory.class, factory, null);
+	        	} catch (JoranException e) {
+	        		getLogger(LogUtil.class).error("Exception starting logger!", e);
+	        	}
+
+	        	context.registerService(ILoggerFactory.class, provider, null);
         	}
         	
             StdOutErrLog.tieSystemOutAndErrToLog();
