@@ -1,9 +1,6 @@
 # server.bndrun
 -include: server.bnd
 
--runpath: \
-		ch.qos.logback.classic
-
 -runtrace: true
 
 # Note: -runbundles is overwritten on resolve
