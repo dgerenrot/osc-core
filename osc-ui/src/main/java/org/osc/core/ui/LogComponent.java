@@ -16,35 +16,39 @@
  *******************************************************************************/
 package org.osc.core.ui;
 
+import static org.osgi.service.component.annotations.ReferenceCardinality.OPTIONAL;
+import static org.osgi.service.component.annotations.ReferencePolicyOption.GREEDY;
+
+import java.util.concurrent.atomic.AtomicReference;
+
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.component.annotations.ReferenceCardinality;
+
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.spi.SLF4JServiceProvider;
 
 @Component
 public class LogComponent {
 
 	private static BundleContext context;
 	
+	private static final ILoggerFactory FALLBACK_IMPL = LoggerFactory.getILoggerFactory();
 	
-	private static ILoggerFactory loggerFactory;
-	
-
-	@Reference
-	private ILoggerFactory loggerFactoryInst;
-	
+	private static AtomicReference<ILoggerFactory> loggerFactoryRef 
+				= new AtomicReference<>(FALLBACK_IMPL);
 	
 	@Activate
 	public void activate(BundleContext context) {
-		LogComponent.context = context;
-		loggerFactory = loggerFactoryInst;		
-
+		LogComponent.context = context;		
+	}
+	
+	@Reference(cardinality=OPTIONAL, policyOption=GREEDY)
+	public void setLoggerFactoryInst(ILoggerFactory instance) {
+		setLoggerFactory(instance);		
 	}
 	
 	/**
@@ -62,28 +66,12 @@ public class LogComponent {
 	 * @return
 	 */
 	public static Logger getLogger(String className) {
-		if (loggerFactory != null) {
-			return loggerFactory.getLogger(className);	
-		} else {
-			init(context);	
-			if (loggerFactory != null) {
-				return loggerFactory.getLogger(className);	
-			} 
-		}
-		
-		return LoggerFactory.getLogger(className);
-		
+		return loggerFactoryRef.get().getLogger(className);
 	}
 	
-	private static void init(BundleContext context) {
-		if (context != null) {
-			LogComponent.context = context;
-			
-			ServiceReference<ILoggerFactory> ref = context.getServiceReference(ILoggerFactory.class);
-			if (ref != null) {
-				loggerFactory = context.getService(ref);
-			}
-		}		
-
+	
+	private static void setLoggerFactory(ILoggerFactory instance) {
+		loggerFactoryRef.accumulateAndGet(instance, (prev, next) -> next != null ? next : prev);
 	}
+	
 }

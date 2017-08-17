@@ -97,11 +97,14 @@ public class UpdateVirtualizationConnectorWindow extends BaseVCWindow {
                 // creating add request with user entered data
                 DryRunRequest<VirtualizationConnectorRequest> updateRequest = createRequest();
                 updateRequest.getDto().setId(this.currentVCObject.getBean().getId());
-                
-                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!");
-                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!");
-                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!");
-                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!");
+
+                // make in really conspicuous
+                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!_!");
+                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!_!");
+                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!_!");
+                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!_!");
+                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!_!");
+                LogComponent.getLogger(UpdateVirtualizationConnectorWindow.class).info("Logging from Non-OSGI-aware class! Horray!_!_!");
                 
                 
                 log.debug("Updating virtualization connector - " + this.name.getValue().trim());
