@@ -21,20 +21,30 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.spi.SLF4JServiceProvider;
 
 @Component
 public class LogComponent {
 
 	private static BundleContext context;
+	
+	
 	private static ILoggerFactory loggerFactory;
+	
+
+	@Reference
+	private ILoggerFactory loggerFactoryInst;
+	
 	
 	@Activate
 	public void activate(BundleContext context) {
 		LogComponent.context = context;
-		init(context);
+		loggerFactory = loggerFactoryInst;		
+
 	}
 	
 	/**
