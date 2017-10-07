@@ -126,6 +126,34 @@ public class SecurityGroupEntityMgr {
         return dto;
     }
 
+	public static List<SecurityGroup> listOtherSecurityGroupsWithSameSFC(EntityManager em,
+			SecurityGroup sg) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+
+		CriteriaQuery<SecurityGroup> query = cb.createQuery(SecurityGroup.class);
+
+		Root<SecurityGroup> root = query.from(SecurityGroup.class);
+		query = query.select(root).where(cb.equal(root.join("serviceFunctionChain"), sg.getServiceFunctionChain()),
+				cb.equal(root.get("projectId"), sg.getProjectId()), cb.notEqual(root, sg));
+
+		List<SecurityGroup> list = em.createQuery(query).getResultList();
+		return list;
+	}
+
+	public static List<SecurityGroup> listOtherSecurityGroupsWithSameNetworkElementID(EntityManager em,
+			SecurityGroup sg) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+
+		CriteriaQuery<SecurityGroup> query = cb.createQuery(SecurityGroup.class);
+
+		Root<SecurityGroup> root = query.from(SecurityGroup.class);
+		query = query.select(root).where(cb.equal(root.get("networkElementId"), sg.getNetworkElementId()),
+				cb.equal(root.get("projectId"), sg.getProjectId()), cb.notEqual(root, sg));
+
+		List<SecurityGroup> list = em.createQuery(query).getResultList();
+		return list;
+	}
+
     public static List<SecurityGroup> listSecurityGroupsByVcId(EntityManager em, Long vcId) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
 
@@ -172,7 +200,7 @@ public class SecurityGroupEntityMgr {
 
         return em.createQuery(query).getResultList();
     }
-    
+
     public static List<SecurityGroup>  listSecurityGroupsBySfcIdAndProjectId(EntityManager em, Long sfcId, String projectId) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
 
@@ -181,9 +209,8 @@ public class SecurityGroupEntityMgr {
         Root<SecurityGroup> root = query.from(SecurityGroup.class);
         query = query.select(root)
                 .where(cb.equal(root.join("serviceFunctionChain").get("id"), sfcId),
-                        cb.equal(root.get("projectId"), projectId))
-                .orderBy(cb.asc(root.get("name")));
-        
+                        cb.equal(root.get("projectId"), projectId));
+
         return em.createQuery(query).getResultList();
     }
 
