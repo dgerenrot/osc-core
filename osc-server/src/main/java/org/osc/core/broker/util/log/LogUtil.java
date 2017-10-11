@@ -41,6 +41,7 @@ public class LogUtil {
             synchronized (System.class) {
                 System.setOut(createLoggingProxy(System.out, false));
                 System.setErr(createLoggingProxy(System.err, true));
+                System.class.notifyAll();
             }
         }
 

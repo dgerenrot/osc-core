@@ -1284,7 +1284,7 @@ public class Schema {
 
             try {
                 for (String statement : sqlStatements) {
-//                    log.info("Execute sql: " + statement);
+                    log.info("Execute sql: " + statement);
                     stmt.execute(statement);
                 }
 
