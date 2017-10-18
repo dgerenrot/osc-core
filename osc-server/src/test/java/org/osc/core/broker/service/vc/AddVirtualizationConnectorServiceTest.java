@@ -123,7 +123,7 @@ public class AddVirtualizationConnectorServiceTest {
 
         when(this.job.getId()).thenReturn(5L);
         //PowerMockito.mockStatic(ConformService.class);
-        when(this.conformService.startVCSyncJob(any(VirtualizationConnector.class), any(EntityManager.class))).thenReturn(this.job);
+        when(this.conformService.startVCSyncJob(any(VirtualizationConnector.class), any(EntityManager.class), any(Boolean.class))).thenReturn(this.job);
     }
 
     @After
@@ -189,32 +189,6 @@ public class AddVirtualizationConnectorServiceTest {
         // Assert.
         verify(this.validatorMock)
         .validate(VirtualizationConnectorServiceData.OPENSTACK_NAME_ALREADY_EXISTS_NSC_REQUEST);
-
-        // clean up
-        OPENSTACK_NAME_ALREADY_EXISTS_NSC_REQUEST.getDto().setForceAddSSLCertificates(false);
-    }
-
-    @Test
-    public void testDispatch_WhenValidationThrowsSSLCertificateException_WhenForceAddCertificate_ReturnsResponse() throws Exception {
-
-        // Arrange.
-        ErrorTypeException exception = new ErrorTypeException("Error Thrown", ErrorType.CONTROLLER_EXCEPTION);
-
-        OPENSTACK_NAME_ALREADY_EXISTS_NSC_REQUEST.getDto().setForceAddSSLCertificates(true);
-
-        doThrow(new SslCertificatesExtendedException(exception, new ArrayList<>())).doNothing().when(this.validatorMock)
-        .validate(OPENSTACK_NAME_ALREADY_EXISTS_NSC_REQUEST);
-
-        // Act.
-        BaseJobResponse response = this.service.dispatch(OPENSTACK_NAME_ALREADY_EXISTS_NSC_REQUEST);
-
-        // Assert.
-        verify(this.validatorMock, times(2))
-        .validate(OPENSTACK_NAME_ALREADY_EXISTS_NSC_REQUEST);
-        VirtualizationConnector vc = this.em.createQuery("Select vc from VirtualizationConnector vc where vc.name = '" + OPENSTACK_NAME_ALREADY_EXISTS_NSC_REQUEST.getDto().getName() + "'", VirtualizationConnector.class)
-                .getSingleResult();
-        validateResponse(response, vc.getId());
-        Assert.assertNotNull("Not updated", vc.getUpdatedTimestamp());
 
         // clean up
         OPENSTACK_NAME_ALREADY_EXISTS_NSC_REQUEST.getDto().setForceAddSSLCertificates(false);

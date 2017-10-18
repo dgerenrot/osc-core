@@ -25,16 +25,20 @@ import javax.persistence.EntityManager;
 import org.osc.core.broker.job.lock.LockObjectReference;
 import org.osc.core.broker.model.entities.virtualization.VirtualizationConnector;
 import org.osc.core.broker.service.api.server.EncryptionApi;
+import org.osc.core.broker.service.dto.SslCertificateAttrDto;
 import org.osc.core.broker.service.dto.VirtualizationConnectorDto;
 import org.osc.core.broker.service.persistence.SslCertificateAttrEntityMgr;
 import org.osc.core.broker.service.request.DryRunRequest;
+import org.osc.core.broker.service.ssl.CertificateResolverModel;
+import org.osc.core.broker.service.ssl.SslCertificatesExtendedException;
 import org.osc.core.broker.service.tasks.TransactionalTask;
 import org.osc.core.broker.util.VirtualizationConnectorUtil;
-import org.slf4j.LoggerFactory;
+import org.osc.core.broker.util.crypto.X509TrustManagerFactory;
 import org.osc.core.common.virtualization.VirtualizationType;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component(service=CheckSSLConnectivityVcTask.class)
 public class CheckSSLConnectivityVcTask extends TransactionalTask {
@@ -42,13 +46,15 @@ public class CheckSSLConnectivityVcTask extends TransactionalTask {
 
     private VirtualizationConnector vc;
 
+    private boolean isForceAddSSLCertificates;
+
     @Reference
     private EncryptionApi encryptionApi;
 
     @Reference
     private VirtualizationConnectorUtil virtualizationConnectorUtil;
 
-    public CheckSSLConnectivityVcTask create(VirtualizationConnector vc) {
+    public CheckSSLConnectivityVcTask create(VirtualizationConnector vc, boolean isForceAddSSLCertificates) {
         CheckSSLConnectivityVcTask task = new CheckSSLConnectivityVcTask();
         task.vc = vc;
         task.name = task.getName();
@@ -56,6 +62,7 @@ public class CheckSSLConnectivityVcTask extends TransactionalTask {
         task.virtualizationConnectorUtil = this.virtualizationConnectorUtil;
         task.dbConnectionManager = this.dbConnectionManager;
         task.txBroadcastUtil = this.txBroadcastUtil;
+        task.isForceAddSSLCertificates = isForceAddSSLCertificates;
 
         return task;
     }
@@ -65,7 +72,17 @@ public class CheckSSLConnectivityVcTask extends TransactionalTask {
         this.vc = em.find(VirtualizationConnector.class, this.vc.getId());
         log.debug("Start executing CheckSSLConnectivityVcTask Task. VC: '" + this.vc.getName() + "'");
         DryRunRequest<VirtualizationConnectorDto> request = createRequest(this.vc);
-        this.virtualizationConnectorUtil.checkConnection(request, this.vc);
+
+        try {
+            this.virtualizationConnectorUtil.checkConnection(request, this.vc);
+        } catch (SslCertificatesExtendedException e) {
+            if (this.isForceAddSSLCertificates) {
+                request = internalSSLCertificatesFetch(request, e);
+                this.virtualizationConnectorUtil.checkConnection(request, this.vc);
+            } else {
+                throw e;
+            }
+        }
     }
 
     @Override
@@ -101,4 +118,19 @@ public class CheckSSLConnectivityVcTask extends TransactionalTask {
         dto.setAdminDomainId(vc.getAdminDomainId());
         return request;
     }
+
+    private DryRunRequest<VirtualizationConnectorDto> internalSSLCertificatesFetch(
+            DryRunRequest<VirtualizationConnectorDto> request, SslCertificatesExtendedException sslCertificatesException) throws Exception {
+        X509TrustManagerFactory trustManagerFactory = X509TrustManagerFactory.getInstance();
+
+        if (trustManagerFactory != null) {
+            for (CertificateResolverModel certObj : sslCertificatesException.getCertificateResolverModels()) {
+                trustManagerFactory.addEntry(certObj.getCertificate(), certObj.getAlias());
+                request.getDto().getSslCertificateAttrSet().add(new SslCertificateAttrDto(certObj.getAlias(), certObj.getSha1()));
+            }
+        }
+
+        return request;
+    }
+
 }

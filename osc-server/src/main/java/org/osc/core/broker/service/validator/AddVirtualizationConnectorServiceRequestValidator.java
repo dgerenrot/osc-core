@@ -59,8 +59,6 @@ implements RequestValidator<DryRunRequest<VirtualizationConnectorRequest>, Virtu
         this.dtoValidator.validateForCreate(dto);
 
         VirtualizationConnector vc = VirtualizationConnectorEntityMgr.createEntity(dto, StaticRegistry.encryptionApi());
-
-        this.virtualizationConnectorUtil.checkConnection(request, vc);
     }
 
     @Override

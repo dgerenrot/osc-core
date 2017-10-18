@@ -146,7 +146,7 @@ implements UpdateVirtualizationConnectorServiceApi {
             LockUtil.releaseLocks(vcUnlock);
         }
 
-        Long jobId = this.conformService.startVCSyncJob(vc, em).getId();
+        Long jobId = this.conformService.startVCSyncJob(vc, em, request.getDto().isForceAddSSLCertificates()).getId();
         return new BaseJobResponse(vc.getId(), jobId);
     }
 

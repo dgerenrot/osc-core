@@ -58,7 +58,6 @@ import org.osc.core.broker.service.tasks.conformance.securitygroupinterface.MgrS
 import org.osc.core.broker.service.tasks.conformance.virtualizationconnector.CheckSSLConnectivityVcTask;
 import org.osc.core.broker.service.transactions.CompleteJobTransaction;
 import org.osc.core.broker.service.transactions.CompleteJobTransactionInput;
-import org.slf4j.LoggerFactory;
 import org.osc.core.common.job.TaskGuard;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -71,6 +70,7 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.transaction.control.ScopedWorkException;
 import org.osgi.service.transaction.control.TransactionControl;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This component exposes both the API and the implementation so that various
@@ -310,12 +310,12 @@ public class ConformService extends ServiceDispatcher<ConformRequest, BaseJobRes
      * If a unlock task is provided, executes the unlock task at the end.
      * </p>
      */
-    public Job startVCSyncJob(final VirtualizationConnector vc, EntityManager em)
+    public Job startVCSyncJob(final VirtualizationConnector vc, EntityManager em, boolean forceAddSSLCertificates)
             throws Exception {
         log.info("Start VC (id:" + vc.getId() + ") Synchronization Job");
         TaskGraph tg = new TaskGraph();
         UnlockObjectTask vcUnlockTask = LockUtil.lockVC(vc, LockRequest.LockType.READ_LOCK);
-        tg.addTask(this.checkSSLConnectivityVcTask.create(vc));
+        tg.addTask(this.checkSSLConnectivityVcTask.create(vc, forceAddSSLCertificates));
         tg.appendTask(vcUnlockTask, TaskGuard.ALL_PREDECESSORS_COMPLETED);
 
         Job job = JobEngine.getEngine().submit("Syncing Virtualization Connector '" + vc.getName() + "'", tg,

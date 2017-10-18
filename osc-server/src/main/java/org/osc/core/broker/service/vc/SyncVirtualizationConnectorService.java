@@ -41,7 +41,7 @@ public class SyncVirtualizationConnectorService extends ServiceDispatcher<BaseJo
         OSCEntityManager<VirtualizationConnector> emgr = new OSCEntityManager<>(VirtualizationConnector.class, em, this.txBroadcastUtil);
         VirtualizationConnector vc = emgr.findByPrimaryKey(request.getId());
         validate(request, vc);
-        Long jobId = this.conformService.startVCSyncJob(vc, em).getId();
+        Long jobId = this.conformService.startVCSyncJob(vc, em, false).getId();
         return new BaseJobResponse(vc.getId(), jobId);
     }
 
