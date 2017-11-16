@@ -48,7 +48,19 @@ upgrade_java() {
     jre_tgz=$tmp_root/jre-8u112-linux-x64.tar.gz
     jre_dir=$my_root/opt/vmidc/jre
     if [ -f "$jre_tgz" ]; then
-	tar -xz --directory=$jre_dir -f $jre_tgz --strip 1
+    tar -xz --directory=$jre_dir -f $jre_tgz --strip 1
+    fi
+}
+
+# Merge the old keystores
+upgrade_keystores() {
+    old_keystore=vmidcKeyStore.jks
+    old_truststore=vmidctruststore.jks
+    new_truststore=osctrustore.jks
+    
+    if [ ! -f "$new_truststore" ]; then
+    cp $old_truststore $new_truststore
+    keytool -importkeystore -srcstoretype JKS -deststoretype JKS -srckeystore $old_keystore -destkeystore $new_truststore
     fi
 }
 
@@ -77,6 +89,7 @@ upgrade_copy
 upgrade_delete
 upgrade_rebrand
 upgrade_java
+upgrade_keystores
 
 echo "done upgrading"
 exit 0
